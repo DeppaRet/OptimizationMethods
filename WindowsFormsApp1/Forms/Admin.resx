@@ -155,6 +155,14 @@
   <metadata name="gunaDragControl1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <data name="AddUser.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAI9JREFUWEfF
+        lTEKwzAUxXz/S/VoSZtJgxJwQT8CLc8QTbHXH3y+Hjf+znIsTHMsSnMsSnMsSnMsSnMsSnMsSnMsSnMs
+        SnMsSnMsSrd5uttrr7fDDibVcVIdJ9VxUh0n1XHS93/DXexDNMeiNMeiNMeiNMeiNMeiNMeiNMeiNMei
+        NMeiNMeiNOfp7di829c6AQuEvFA96DQZAAAAAElFTkSuQmCC
+</value>
+  </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAEA+voAAAEAIAD47wMAFgAAACgAAAD6AAAA9AEAAAEAIAAAAAAAkNADAAAAAAAAAAAAAAAAAAAA

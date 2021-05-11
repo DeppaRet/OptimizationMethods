@@ -2,6 +2,7 @@
 using System.Data;
 using System.Data.SQLite;
 using System.Windows.Forms;
+using WindowsFormsApp1.Forms;
 
 namespace WindowsFormsApp1
 {
@@ -57,6 +58,8 @@ namespace WindowsFormsApp1
          string command = " ";
          if (currentDatabase.Text == "Пользователи")
          {
+            AddUser.Visible = true;
+            AddUser.Enabled = true;
             try
             {
                command = "SELECT * FROM users";
@@ -67,6 +70,11 @@ namespace WindowsFormsApp1
             {
                MessageBox.Show(ex.Message);
             }
+         }
+         else
+         {
+            AddUser.Visible = false;
+            AddUser.Enabled = false;
          }
       }
 
@@ -97,6 +105,12 @@ namespace WindowsFormsApp1
       {
          Researcher researcher = new Researcher();
          researcher.Show();
+      }
+
+      private void AddUser_Click(object sender, EventArgs e)
+      {
+        NewUser newUser = new NewUser();
+        newUser.Show();
       }
    }
 }

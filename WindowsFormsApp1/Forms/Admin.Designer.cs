@@ -42,6 +42,7 @@
          this.label2 = new System.Windows.Forms.Label();
          this.gunaDragControl1 = new Guna.UI.WinForms.GunaDragControl(this.components);
          this.researchMode = new Guna.UI.WinForms.GunaButton();
+         this.AddUser = new Guna.UI.WinForms.GunaButton();
          ((System.ComponentModel.ISupportInitialize)(this.dataTable)).BeginInit();
          this.SuspendLayout();
          // 
@@ -260,12 +261,40 @@
          this.researchMode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
          this.researchMode.Click += new System.EventHandler(this.researchMode_Click);
          // 
+         // AddUser
+         // 
+         this.AddUser.AnimationHoverSpeed = 0.07F;
+         this.AddUser.AnimationSpeed = 0.03F;
+         this.AddUser.BackColor = System.Drawing.Color.Transparent;
+         this.AddUser.BaseColor = System.Drawing.Color.Transparent;
+         this.AddUser.BorderColor = System.Drawing.Color.Black;
+         this.AddUser.DialogResult = System.Windows.Forms.DialogResult.None;
+         this.AddUser.Enabled = false;
+         this.AddUser.FocusedColor = System.Drawing.Color.Empty;
+         this.AddUser.Font = new System.Drawing.Font("Segoe UI", 10F);
+         this.AddUser.ForeColor = System.Drawing.Color.Black;
+         this.AddUser.Image = ((System.Drawing.Image)(resources.GetObject("AddUser.Image")));
+         this.AddUser.ImageSize = new System.Drawing.Size(20, 20);
+         this.AddUser.Location = new System.Drawing.Point(228, 35);
+         this.AddUser.Name = "AddUser";
+         this.AddUser.OnHoverBaseColor = System.Drawing.Color.Silver;
+         this.AddUser.OnHoverBorderColor = System.Drawing.Color.Black;
+         this.AddUser.OnHoverForeColor = System.Drawing.Color.White;
+         this.AddUser.OnHoverImage = null;
+         this.AddUser.OnPressedColor = System.Drawing.Color.Black;
+         this.AddUser.Size = new System.Drawing.Size(238, 30);
+         this.AddUser.TabIndex = 18;
+         this.AddUser.Text = "Добавить нового пользователя";
+         this.AddUser.Visible = false;
+         this.AddUser.Click += new System.EventHandler(this.AddUser_Click);
+         // 
          // Admin
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
          this.BackgroundImage = global::WindowsFormsApp1.Properties.Resources.background;
          this.ClientSize = new System.Drawing.Size(905, 515);
+         this.Controls.Add(this.AddUser);
          this.Controls.Add(this.researchMode);
          this.Controls.Add(this.label2);
          this.Controls.Add(this.currentDatabase);
@@ -303,5 +332,6 @@
       private System.Windows.Forms.Label label2;
       private Guna.UI.WinForms.GunaDragControl gunaDragControl1;
       private Guna.UI.WinForms.GunaButton researchMode;
+      private Guna.UI.WinForms.GunaButton AddUser;
    }
 }
