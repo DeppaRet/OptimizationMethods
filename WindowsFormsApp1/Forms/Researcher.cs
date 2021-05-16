@@ -40,8 +40,7 @@ namespace WindowsFormsApp1
          double[] tempT1 = new[] {Convert.ToDouble(lowerT1.Text), Convert.ToDouble(highestT1.Text)};
          double[] tempT2 = new[] {Convert.ToDouble(lowerT2.Text), Convert.ToDouble(highestT2.Text)};
          double accuracy = Convert.ToDouble(accuracyValue.Text);
-         double step = Convert.ToDouble(this.step.Text);
-         DataTable table = Scan.calculate(alpha, beta, mu, pressure, speed, consumption, tempT1, tempT2, accuracy,step);
+         DataTable table = Scan.calculate(alpha, beta, mu, pressure, speed, consumption, tempT1, tempT2, accuracy);
 
          Simulation simulation = new Simulation(table);
          simulation.Show();

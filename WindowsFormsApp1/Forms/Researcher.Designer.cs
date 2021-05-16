@@ -73,8 +73,6 @@
          this.label16 = new System.Windows.Forms.Label();
          this.accuracyValue = new System.Windows.Forms.TextBox();
          this.label2 = new System.Windows.Forms.Label();
-         this.label3 = new System.Windows.Forms.Label();
-         this.step = new System.Windows.Forms.TextBox();
          this.groupBox2.SuspendLayout();
          this.groupBox3.SuspendLayout();
          this.groupBox4.SuspendLayout();
@@ -562,33 +560,12 @@
          this.label2.TabIndex = 31;
          this.label2.Text = "Точность решения";
          // 
-         // label3
-         // 
-         this.label3.AutoSize = true;
-         this.label3.BackColor = System.Drawing.Color.Transparent;
-         this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-         this.label3.Location = new System.Drawing.Point(453, 237);
-         this.label3.Name = "label3";
-         this.label3.Size = new System.Drawing.Size(41, 20);
-         this.label3.TabIndex = 33;
-         this.label3.Text = "Шаг";
-         // 
-         // step
-         // 
-         this.step.Location = new System.Drawing.Point(608, 237);
-         this.step.Name = "step";
-         this.step.Size = new System.Drawing.Size(75, 20);
-         this.step.TabIndex = 32;
-         this.step.Text = "0,1";
-         // 
          // Researcher
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
          this.BackgroundImage = global::WindowsFormsApp1.Properties.Resources.background;
          this.ClientSize = new System.Drawing.Size(1042, 548);
-         this.Controls.Add(this.label3);
-         this.Controls.Add(this.step);
          this.Controls.Add(this.label2);
          this.Controls.Add(this.accuracyValue);
          this.Controls.Add(this.groupBox5);
@@ -673,7 +650,5 @@
       private System.Windows.Forms.Label label20;
       private System.Windows.Forms.Label label2;
       private System.Windows.Forms.TextBox accuracyValue;
-      private System.Windows.Forms.Label label3;
-      private System.Windows.Forms.TextBox step;
    }
 }

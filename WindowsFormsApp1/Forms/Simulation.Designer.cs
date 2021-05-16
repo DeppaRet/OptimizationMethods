@@ -30,12 +30,12 @@
       {
          this.components = new System.ComponentModel.Container();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Simulation));
-         System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-         System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-         System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+         System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+         System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+         System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
          this.minimizeButton = new Guna.UI.WinForms.GunaButton();
          this.closeButton = new Guna.UI.WinForms.GunaButton();
-         this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+         this.equalLines = new System.Windows.Forms.DataVisualization.Charting.Chart();
          this.groupBox1 = new System.Windows.Forms.GroupBox();
          this.temperature2 = new System.Windows.Forms.TextBox();
          this.temperature1 = new System.Windows.Forms.TextBox();
@@ -48,7 +48,7 @@
          this.resultText = new System.Windows.Forms.RichTextBox();
          this.ResultTable = new System.Windows.Forms.DataGridView();
          this.gunaDragControl1 = new Guna.UI.WinForms.GunaDragControl(this.components);
-         ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.equalLines)).BeginInit();
          this.groupBox1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.ResultTable)).BeginInit();
          this.SuspendLayout();
@@ -103,23 +103,23 @@
          this.closeButton.TabIndex = 4;
          this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
          // 
-         // chart1
+         // equalLines
          // 
-         chartArea5.Name = "ChartArea1";
-         this.chart1.ChartAreas.Add(chartArea5);
-         legend5.Name = "Legend1";
-         this.chart1.Legends.Add(legend5);
-         this.chart1.Location = new System.Drawing.Point(12, 33);
-         this.chart1.Name = "chart1";
-         series5.ChartArea = "ChartArea1";
-         series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.SplineRange;
-         series5.Legend = "Legend1";
-         series5.Name = "Series1";
-         series5.YValuesPerPoint = 2;
-         this.chart1.Series.Add(series5);
-         this.chart1.Size = new System.Drawing.Size(543, 405);
-         this.chart1.TabIndex = 6;
-         this.chart1.Text = "chart1";
+         chartArea1.Name = "ChartArea1";
+         this.equalLines.ChartAreas.Add(chartArea1);
+         legend1.Name = "Legend1";
+         this.equalLines.Legends.Add(legend1);
+         this.equalLines.Location = new System.Drawing.Point(12, 33);
+         this.equalLines.Name = "equalLines";
+         series1.ChartArea = "ChartArea1";
+         series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+         series1.Legend = "Legend1";
+         series1.Name = "Series1";
+         series1.YValuesPerPoint = 2;
+         this.equalLines.Series.Add(series1);
+         this.equalLines.Size = new System.Drawing.Size(543, 405);
+         this.equalLines.TabIndex = 6;
+         this.equalLines.Text = "equalLines";
          // 
          // groupBox1
          // 
@@ -243,7 +243,7 @@
          this.Controls.Add(this.calculatedAmount);
          this.Controls.Add(this.label11);
          this.Controls.Add(this.groupBox1);
-         this.Controls.Add(this.chart1);
+         this.Controls.Add(this.equalLines);
          this.Controls.Add(this.minimizeButton);
          this.Controls.Add(this.closeButton);
          this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -251,7 +251,7 @@
          this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
          this.Text = "Simulation";
          this.Load += new System.EventHandler(this.Simulation_Load);
-         ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.equalLines)).EndInit();
          this.groupBox1.ResumeLayout(false);
          this.groupBox1.PerformLayout();
          ((System.ComponentModel.ISupportInitialize)(this.ResultTable)).EndInit();
@@ -264,7 +264,7 @@
 
       private Guna.UI.WinForms.GunaButton minimizeButton;
       private Guna.UI.WinForms.GunaButton closeButton;
-      private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+      private System.Windows.Forms.DataVisualization.Charting.Chart equalLines;
       private System.Windows.Forms.GroupBox groupBox1;
       private System.Windows.Forms.TextBox temperature2;
       private System.Windows.Forms.TextBox temperature1;
