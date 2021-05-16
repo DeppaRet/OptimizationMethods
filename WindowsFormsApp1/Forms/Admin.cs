@@ -43,7 +43,18 @@ namespace WindowsFormsApp1
          {
             string command = sqlCommand.Text;
             requestAnswer(command);
-            command = "SELECT * FROM users"; //нужна текущая таблица 
+            if (currentDatabase.Text == "Пользователи")
+            {
+               command = "SELECT * FROM users";
+               choosenDB = "users.db";
+
+            }
+            else if (currentDatabase.Text == "Задачи")
+            {
+               command = "SELECT * FROM Tasks";
+               choosenDB = "Tasks.db";
+            }
+
             openDatabase(command);
          }
          catch (Exception ex)
@@ -71,6 +82,21 @@ namespace WindowsFormsApp1
                MessageBox.Show(ex.Message);
             }
          }
+         else if (currentDatabase.Text == "Задачи")
+         {
+            try
+            {
+               command = "SELECT * FROM Tasks";
+               choosenDB = "Tasks.db";
+               openDatabase(command);
+            }
+            catch (Exception ex)
+            {
+               MessageBox.Show(ex.Message);
+            }
+            AddUser.Visible = false;
+            AddUser.Enabled = false;
+         }
          else
          {
             AddUser.Visible = false;
@@ -80,7 +106,7 @@ namespace WindowsFormsApp1
 
       public void openDatabase(string cmd)
       {
-         using (SQLiteConnection Connect = new SQLiteConnection("Data Source = users.db")) 
+         using (SQLiteConnection Connect = new SQLiteConnection("Data Source = " + choosenDB)) 
          {
             ds = requestAnswer(cmd);
             dataTable.DataSource = ds.Tables[0];
@@ -111,6 +137,22 @@ namespace WindowsFormsApp1
       {
         NewUser newUser = new NewUser();
         newUser.Show();
+      }
+
+      private void addTask_Click(object sender, EventArgs e)
+      {
+         string command =
+            "INSERT INTO Tasks (Name, Task, LowerT1, HigherT1, LowerT2, HigherT2, SecondLimit, Consumption, Pressure, Speed, Price) VALUES ('" +
+            taskName.Text + "','" + newTaskText.Text + "','" + lowerT1.Text + "','" + highestT1.Text + "','" +
+            lowerT2.Text + "','" + highestT2.Text + "','" + secondLimitation.Text + "','" + mixtureCons.Text + "','" +
+            reactorPressure.Text + "','" + rotationalSpeed.Text + "','" + costOnePiece.Text + "');";
+         choosenDB = "Tasks.db";
+         requestAnswer(command);
+         MessageBox.Show("задача добавлена успешно!");
+         //command = "Select * from Tasks";
+         //ds = requestAnswer(command);
+         //dataTable.DataSource = ds.Tables[0];
+         //dataTable.Columns["id"].ReadOnly = true;
       }
    }
 }

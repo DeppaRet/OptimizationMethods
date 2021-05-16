@@ -27,7 +27,6 @@ namespace WindowsFormsApp1.Forms
 
       private void AddUser_Click(object sender, EventArgs e)
       {
-         string idUser = id.Text;
          string loginUser = Login.Text;
          string passwordUser = Password.Text;
          string choosenRole = UserRole.Text;
@@ -39,7 +38,7 @@ namespace WindowsFormsApp1.Forms
          {
             choosenRole = "research";
          }
-         string cmd = "Insert into users values (" + idUser + ",'" + loginUser + "','" + passwordUser + "','"+ choosenRole +"')";
+         string cmd = "Insert into users (login, password, role) values ('" + loginUser + "','" + passwordUser + "','"+ choosenRole +"')";
          openDatabase(cmd);
          MessageBox.Show("Пользователь добавлен!","Успех", MessageBoxButtons.OK);
       }

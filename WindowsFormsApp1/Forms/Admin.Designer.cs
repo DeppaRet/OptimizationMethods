@@ -43,7 +43,30 @@
          this.gunaDragControl1 = new Guna.UI.WinForms.GunaDragControl(this.components);
          this.researchMode = new Guna.UI.WinForms.GunaButton();
          this.AddUser = new Guna.UI.WinForms.GunaButton();
+         this.newTaskText = new System.Windows.Forms.RichTextBox();
+         this.addTask = new Guna.UI.WinForms.GunaButton();
+         this.label3 = new System.Windows.Forms.Label();
+         this.groupBox1 = new System.Windows.Forms.GroupBox();
+         this.label4 = new System.Windows.Forms.Label();
+         this.taskName = new System.Windows.Forms.TextBox();
+         this.label19 = new System.Windows.Forms.Label();
+         this.highestT2 = new System.Windows.Forms.TextBox();
+         this.lowerT2 = new System.Windows.Forms.TextBox();
+         this.label21 = new System.Windows.Forms.Label();
+         this.highestT1 = new System.Windows.Forms.TextBox();
+         this.lowerT1 = new System.Windows.Forms.TextBox();
+         this.secondLimitation = new System.Windows.Forms.TextBox();
+         this.label5 = new System.Windows.Forms.Label();
+         this.rotationalSpeed = new System.Windows.Forms.TextBox();
+         this.label9 = new System.Windows.Forms.Label();
+         this.reactorPressure = new System.Windows.Forms.TextBox();
+         this.mixtureCons = new System.Windows.Forms.TextBox();
+         this.label6 = new System.Windows.Forms.Label();
+         this.label8 = new System.Windows.Forms.Label();
+         this.costOnePiece = new System.Windows.Forms.TextBox();
+         this.label7 = new System.Windows.Forms.Label();
          ((System.ComponentModel.ISupportInitialize)(this.dataTable)).BeginInit();
+         this.groupBox1.SuspendLayout();
          this.SuspendLayout();
          // 
          // closeButton
@@ -148,9 +171,9 @@
          // 
          // sqlCommand
          // 
-         this.sqlCommand.Location = new System.Drawing.Point(472, 94);
+         this.sqlCommand.Location = new System.Drawing.Point(417, 45);
          this.sqlCommand.Name = "sqlCommand";
-         this.sqlCommand.Size = new System.Drawing.Size(421, 20);
+         this.sqlCommand.Size = new System.Drawing.Size(476, 20);
          this.sqlCommand.TabIndex = 11;
          // 
          // label1
@@ -158,7 +181,7 @@
          this.label1.AutoSize = true;
          this.label1.BackColor = System.Drawing.Color.Transparent;
          this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-         this.label1.Location = new System.Drawing.Point(468, 71);
+         this.label1.Location = new System.Drawing.Point(413, 22);
          this.label1.Name = "label1";
          this.label1.Size = new System.Drawing.Size(100, 20);
          this.label1.TabIndex = 12;
@@ -169,7 +192,7 @@
          this.dataTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
          this.dataTable.Location = new System.Drawing.Point(9, 71);
          this.dataTable.Name = "dataTable";
-         this.dataTable.Size = new System.Drawing.Size(457, 432);
+         this.dataTable.Size = new System.Drawing.Size(392, 432);
          this.dataTable.TabIndex = 13;
          // 
          // makeRequest
@@ -185,7 +208,7 @@
          this.makeRequest.ForeColor = System.Drawing.Color.White;
          this.makeRequest.Image = null;
          this.makeRequest.ImageSize = new System.Drawing.Size(20, 20);
-         this.makeRequest.Location = new System.Drawing.Point(769, 120);
+         this.makeRequest.Location = new System.Drawing.Point(769, 71);
          this.makeRequest.Name = "makeRequest";
          this.makeRequest.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
          this.makeRequest.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -211,8 +234,7 @@
          this.currentDatabase.FormattingEnabled = true;
          this.currentDatabase.Items.AddRange(new object[] {
             "Пользователи",
-            "Задачи",
-            "Методы"});
+            "Задачи"});
          this.currentDatabase.Location = new System.Drawing.Point(9, 39);
          this.currentDatabase.Name = "currentDatabase";
          this.currentDatabase.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
@@ -248,7 +270,7 @@
          this.researchMode.ForeColor = System.Drawing.Color.White;
          this.researchMode.Image = null;
          this.researchMode.ImageSize = new System.Drawing.Size(20, 20);
-         this.researchMode.Location = new System.Drawing.Point(760, 479);
+         this.researchMode.Location = new System.Drawing.Point(9, 509);
          this.researchMode.Name = "researchMode";
          this.researchMode.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
          this.researchMode.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -275,7 +297,7 @@
          this.AddUser.ForeColor = System.Drawing.Color.Black;
          this.AddUser.Image = ((System.Drawing.Image)(resources.GetObject("AddUser.Image")));
          this.AddUser.ImageSize = new System.Drawing.Size(20, 20);
-         this.AddUser.Location = new System.Drawing.Point(228, 35);
+         this.AddUser.Location = new System.Drawing.Point(163, 35);
          this.AddUser.Name = "AddUser";
          this.AddUser.OnHoverBaseColor = System.Drawing.Color.Silver;
          this.AddUser.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -288,12 +310,256 @@
          this.AddUser.Visible = false;
          this.AddUser.Click += new System.EventHandler(this.AddUser_Click);
          // 
+         // newTaskText
+         // 
+         this.newTaskText.Location = new System.Drawing.Point(11, 247);
+         this.newTaskText.Name = "newTaskText";
+         this.newTaskText.Size = new System.Drawing.Size(469, 114);
+         this.newTaskText.TabIndex = 19;
+         this.newTaskText.Text = "";
+         // 
+         // addTask
+         // 
+         this.addTask.AnimationHoverSpeed = 0.07F;
+         this.addTask.AnimationSpeed = 0.03F;
+         this.addTask.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+         this.addTask.BorderColor = System.Drawing.Color.Black;
+         this.addTask.DialogResult = System.Windows.Forms.DialogResult.None;
+         this.addTask.FocusedColor = System.Drawing.Color.Empty;
+         this.addTask.Font = new System.Drawing.Font("Segoe UI", 9F);
+         this.addTask.ForeColor = System.Drawing.Color.White;
+         this.addTask.Image = null;
+         this.addTask.ImageSize = new System.Drawing.Size(20, 20);
+         this.addTask.Location = new System.Drawing.Point(356, 367);
+         this.addTask.Name = "addTask";
+         this.addTask.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
+         this.addTask.OnHoverBorderColor = System.Drawing.Color.Black;
+         this.addTask.OnHoverForeColor = System.Drawing.Color.White;
+         this.addTask.OnHoverImage = null;
+         this.addTask.OnPressedColor = System.Drawing.Color.Black;
+         this.addTask.Size = new System.Drawing.Size(124, 22);
+         this.addTask.TabIndex = 20;
+         this.addTask.Text = "Выполнить";
+         this.addTask.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+         this.addTask.Click += new System.EventHandler(this.addTask_Click);
+         // 
+         // label3
+         // 
+         this.label3.AutoSize = true;
+         this.label3.BackColor = System.Drawing.Color.Transparent;
+         this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+         this.label3.Location = new System.Drawing.Point(8, 224);
+         this.label3.Name = "label3";
+         this.label3.Size = new System.Drawing.Size(111, 20);
+         this.label3.TabIndex = 21;
+         this.label3.Text = "Текст задачи";
+         // 
+         // groupBox1
+         // 
+         this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+         this.groupBox1.Controls.Add(this.costOnePiece);
+         this.groupBox1.Controls.Add(this.label7);
+         this.groupBox1.Controls.Add(this.rotationalSpeed);
+         this.groupBox1.Controls.Add(this.label9);
+         this.groupBox1.Controls.Add(this.reactorPressure);
+         this.groupBox1.Controls.Add(this.mixtureCons);
+         this.groupBox1.Controls.Add(this.label6);
+         this.groupBox1.Controls.Add(this.label8);
+         this.groupBox1.Controls.Add(this.label5);
+         this.groupBox1.Controls.Add(this.secondLimitation);
+         this.groupBox1.Controls.Add(this.label19);
+         this.groupBox1.Controls.Add(this.highestT2);
+         this.groupBox1.Controls.Add(this.lowerT2);
+         this.groupBox1.Controls.Add(this.label21);
+         this.groupBox1.Controls.Add(this.highestT1);
+         this.groupBox1.Controls.Add(this.lowerT1);
+         this.groupBox1.Controls.Add(this.taskName);
+         this.groupBox1.Controls.Add(this.label4);
+         this.groupBox1.Controls.Add(this.addTask);
+         this.groupBox1.Controls.Add(this.newTaskText);
+         this.groupBox1.Controls.Add(this.label3);
+         this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+         this.groupBox1.Location = new System.Drawing.Point(407, 108);
+         this.groupBox1.Name = "groupBox1";
+         this.groupBox1.Size = new System.Drawing.Size(486, 395);
+         this.groupBox1.TabIndex = 22;
+         this.groupBox1.TabStop = false;
+         this.groupBox1.Text = "Добавить новую задачу";
+         // 
+         // label4
+         // 
+         this.label4.AutoSize = true;
+         this.label4.BackColor = System.Drawing.Color.Transparent;
+         this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+         this.label4.Location = new System.Drawing.Point(3, 26);
+         this.label4.Name = "label4";
+         this.label4.Size = new System.Drawing.Size(83, 20);
+         this.label4.TabIndex = 22;
+         this.label4.Text = "Название";
+         // 
+         // taskName
+         // 
+         this.taskName.Location = new System.Drawing.Point(92, 23);
+         this.taskName.Name = "taskName";
+         this.taskName.Size = new System.Drawing.Size(122, 26);
+         this.taskName.TabIndex = 23;
+         // 
+         // label19
+         // 
+         this.label19.AutoSize = true;
+         this.label19.BackColor = System.Drawing.Color.Transparent;
+         this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+         this.label19.Location = new System.Drawing.Point(59, 89);
+         this.label19.Name = "label19";
+         this.label19.Size = new System.Drawing.Size(68, 20);
+         this.label19.TabIndex = 34;
+         this.label19.Text = "<=T2<=\r\n";
+         // 
+         // highestT2
+         // 
+         this.highestT2.Location = new System.Drawing.Point(133, 88);
+         this.highestT2.Name = "highestT2";
+         this.highestT2.Size = new System.Drawing.Size(44, 26);
+         this.highestT2.TabIndex = 33;
+         this.highestT2.Text = "6";
+         // 
+         // lowerT2
+         // 
+         this.lowerT2.Location = new System.Drawing.Point(9, 89);
+         this.lowerT2.Name = "lowerT2";
+         this.lowerT2.Size = new System.Drawing.Size(44, 26);
+         this.lowerT2.TabIndex = 32;
+         this.lowerT2.Text = "-2";
+         // 
+         // label21
+         // 
+         this.label21.AutoSize = true;
+         this.label21.BackColor = System.Drawing.Color.Transparent;
+         this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+         this.label21.Location = new System.Drawing.Point(59, 56);
+         this.label21.Name = "label21";
+         this.label21.Size = new System.Drawing.Size(68, 20);
+         this.label21.TabIndex = 31;
+         this.label21.Text = "<=T1<=\r\n";
+         // 
+         // highestT1
+         // 
+         this.highestT1.Location = new System.Drawing.Point(133, 55);
+         this.highestT1.Name = "highestT1";
+         this.highestT1.Size = new System.Drawing.Size(44, 26);
+         this.highestT1.TabIndex = 30;
+         this.highestT1.Text = "3";
+         // 
+         // lowerT1
+         // 
+         this.lowerT1.Location = new System.Drawing.Point(9, 56);
+         this.lowerT1.Name = "lowerT1";
+         this.lowerT1.Size = new System.Drawing.Size(44, 26);
+         this.lowerT1.TabIndex = 29;
+         this.lowerT1.Text = "-3";
+         // 
+         // secondLimitation
+         // 
+         this.secondLimitation.Location = new System.Drawing.Point(243, 50);
+         this.secondLimitation.Name = "secondLimitation";
+         this.secondLimitation.Size = new System.Drawing.Size(220, 26);
+         this.secondLimitation.TabIndex = 35;
+         this.secondLimitation.Text = "T1 - T2 >= -3";
+         // 
+         // label5
+         // 
+         this.label5.AutoSize = true;
+         this.label5.BackColor = System.Drawing.Color.Transparent;
+         this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+         this.label5.Location = new System.Drawing.Point(239, 27);
+         this.label5.Name = "label5";
+         this.label5.Size = new System.Drawing.Size(216, 20);
+         this.label5.TabIndex = 36;
+         this.label5.Text = "Ограничения второго рода";
+         // 
+         // rotationalSpeed
+         // 
+         this.rotationalSpeed.Location = new System.Drawing.Point(264, 200);
+         this.rotationalSpeed.Name = "rotationalSpeed";
+         this.rotationalSpeed.Size = new System.Drawing.Size(31, 26);
+         this.rotationalSpeed.TabIndex = 42;
+         this.rotationalSpeed.Text = "2";
+         // 
+         // label9
+         // 
+         this.label9.AutoSize = true;
+         this.label9.BackColor = System.Drawing.Color.Transparent;
+         this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+         this.label9.Location = new System.Drawing.Point(8, 206);
+         this.label9.Name = "label9";
+         this.label9.Size = new System.Drawing.Size(255, 16);
+         this.label9.TabIndex = 41;
+         this.label9.Text = "Скорость вращения мешалки (об/с) (N)\r\n";
+         // 
+         // reactorPressure
+         // 
+         this.reactorPressure.Location = new System.Drawing.Point(264, 168);
+         this.reactorPressure.Name = "reactorPressure";
+         this.reactorPressure.Size = new System.Drawing.Size(31, 26);
+         this.reactorPressure.TabIndex = 40;
+         this.reactorPressure.Text = "1";
+         // 
+         // mixtureCons
+         // 
+         this.mixtureCons.Location = new System.Drawing.Point(264, 134);
+         this.mixtureCons.Name = "mixtureCons";
+         this.mixtureCons.Size = new System.Drawing.Size(31, 26);
+         this.mixtureCons.TabIndex = 39;
+         this.mixtureCons.Text = "2";
+         // 
+         // label6
+         // 
+         this.label6.AutoSize = true;
+         this.label6.BackColor = System.Drawing.Color.Transparent;
+         this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+         this.label6.Location = new System.Drawing.Point(8, 174);
+         this.label6.Name = "label6";
+         this.label6.Size = new System.Drawing.Size(206, 16);
+         this.label6.TabIndex = 38;
+         this.label6.Text = "Давление в реакторе (КПа) (A)";
+         // 
+         // label8
+         // 
+         this.label8.AutoSize = true;
+         this.label8.BackColor = System.Drawing.Color.Transparent;
+         this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+         this.label8.Location = new System.Drawing.Point(8, 140);
+         this.label8.Name = "label8";
+         this.label8.Size = new System.Drawing.Size(243, 16);
+         this.label8.TabIndex = 37;
+         this.label8.Text = "Расход реакционной смеси (кг/ч) (G)";
+         // 
+         // costOnePiece
+         // 
+         this.costOnePiece.Location = new System.Drawing.Point(411, 83);
+         this.costOnePiece.Name = "costOnePiece";
+         this.costOnePiece.Size = new System.Drawing.Size(52, 26);
+         this.costOnePiece.TabIndex = 51;
+         this.costOnePiece.Text = "100";
+         // 
+         // label7
+         // 
+         this.label7.AutoSize = true;
+         this.label7.BackColor = System.Drawing.Color.Transparent;
+         this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+         this.label7.Location = new System.Drawing.Point(240, 88);
+         this.label7.Name = "label7";
+         this.label7.Size = new System.Drawing.Size(171, 17);
+         this.label7.TabIndex = 50;
+         this.label7.Text = "Стоимость 1 кг продукта";
+         // 
          // Admin
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
          this.BackgroundImage = global::WindowsFormsApp1.Properties.Resources.background;
-         this.ClientSize = new System.Drawing.Size(905, 515);
+         this.ClientSize = new System.Drawing.Size(905, 544);
+         this.Controls.Add(this.groupBox1);
          this.Controls.Add(this.AddUser);
          this.Controls.Add(this.researchMode);
          this.Controls.Add(this.label2);
@@ -313,6 +579,8 @@
          this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
          this.Text = "Admin";
          ((System.ComponentModel.ISupportInitialize)(this.dataTable)).EndInit();
+         this.groupBox1.ResumeLayout(false);
+         this.groupBox1.PerformLayout();
          this.ResumeLayout(false);
          this.PerformLayout();
 
@@ -333,5 +601,27 @@
       private Guna.UI.WinForms.GunaDragControl gunaDragControl1;
       private Guna.UI.WinForms.GunaButton researchMode;
       private Guna.UI.WinForms.GunaButton AddUser;
+      private System.Windows.Forms.Label label3;
+      private Guna.UI.WinForms.GunaButton addTask;
+      private System.Windows.Forms.RichTextBox newTaskText;
+      private System.Windows.Forms.GroupBox groupBox1;
+      private System.Windows.Forms.TextBox taskName;
+      private System.Windows.Forms.Label label4;
+      private System.Windows.Forms.Label label19;
+      private System.Windows.Forms.TextBox highestT2;
+      private System.Windows.Forms.TextBox lowerT2;
+      private System.Windows.Forms.Label label21;
+      private System.Windows.Forms.TextBox highestT1;
+      private System.Windows.Forms.TextBox lowerT1;
+      private System.Windows.Forms.Label label5;
+      private System.Windows.Forms.TextBox secondLimitation;
+      private System.Windows.Forms.TextBox rotationalSpeed;
+      private System.Windows.Forms.Label label9;
+      private System.Windows.Forms.TextBox reactorPressure;
+      private System.Windows.Forms.TextBox mixtureCons;
+      private System.Windows.Forms.Label label6;
+      private System.Windows.Forms.Label label8;
+      private System.Windows.Forms.TextBox costOnePiece;
+      private System.Windows.Forms.Label label7;
    }
 }

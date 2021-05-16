@@ -35,26 +35,20 @@
          this.task = new Guna.UI.WinForms.GunaComboBox();
          this.label1 = new System.Windows.Forms.Label();
          this.gunaDragControl1 = new Guna.UI.WinForms.GunaDragControl(this.components);
-         this.groupBox1 = new System.Windows.Forms.GroupBox();
-         this.label2 = new System.Windows.Forms.Label();
-         this.label3 = new System.Windows.Forms.Label();
-         this.temperature1 = new System.Windows.Forms.TextBox();
-         this.temperature2 = new System.Windows.Forms.TextBox();
          this.groupBox2 = new System.Windows.Forms.GroupBox();
-         this.alphaText = new System.Windows.Forms.TextBox();
-         this.label5 = new System.Windows.Forms.Label();
-         this.betaText = new System.Windows.Forms.TextBox();
-         this.label6 = new System.Windows.Forms.Label();
          this.muText = new System.Windows.Forms.TextBox();
          this.label7 = new System.Windows.Forms.Label();
+         this.betaText = new System.Windows.Forms.TextBox();
+         this.label6 = new System.Windows.Forms.Label();
+         this.alphaText = new System.Windows.Forms.TextBox();
+         this.label5 = new System.Windows.Forms.Label();
          this.groupBox3 = new System.Windows.Forms.GroupBox();
+         this.rotationalSpeed = new System.Windows.Forms.TextBox();
+         this.label9 = new System.Windows.Forms.Label();
          this.reactorPressure = new System.Windows.Forms.TextBox();
          this.mixtureCons = new System.Windows.Forms.TextBox();
          this.label4 = new System.Windows.Forms.Label();
          this.label8 = new System.Windows.Forms.Label();
-         this.rotationalSpeed = new System.Windows.Forms.TextBox();
-         this.label9 = new System.Windows.Forms.Label();
-         this.label10 = new System.Windows.Forms.Label();
          this.amountOfProductButton = new Guna.UI.WinForms.GunaButton();
          this.label11 = new System.Windows.Forms.Label();
          this.calculatedAmount = new System.Windows.Forms.TextBox();
@@ -62,13 +56,27 @@
          this.label12 = new System.Windows.Forms.Label();
          this.costOnePiece = new System.Windows.Forms.TextBox();
          this.label13 = new System.Windows.Forms.Label();
-         this.lowerT1 = new System.Windows.Forms.TextBox();
+         this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+         this.choosenTask = new System.Windows.Forms.RichTextBox();
+         this.label18 = new System.Windows.Forms.Label();
+         this.gunaComboBox1 = new Guna.UI.WinForms.GunaComboBox();
+         this.groupBox4 = new System.Windows.Forms.GroupBox();
+         this.label20 = new System.Windows.Forms.Label();
+         this.label21 = new System.Windows.Forms.Label();
          this.highestT1 = new System.Windows.Forms.TextBox();
+         this.lowerT1 = new System.Windows.Forms.TextBox();
+         this.label19 = new System.Windows.Forms.Label();
          this.highestT2 = new System.Windows.Forms.TextBox();
          this.lowerT2 = new System.Windows.Forms.TextBox();
-         this.groupBox1.SuspendLayout();
+         this.groupBox5 = new System.Windows.Forms.GroupBox();
+         this.secondLimitation = new System.Windows.Forms.TextBox();
+         this.label16 = new System.Windows.Forms.Label();
+         this.accuracyValue = new System.Windows.Forms.TextBox();
+         this.label2 = new System.Windows.Forms.Label();
          this.groupBox2.SuspendLayout();
          this.groupBox3.SuspendLayout();
+         this.groupBox4.SuspendLayout();
+         this.groupBox5.SuspendLayout();
          this.SuspendLayout();
          // 
          // minimizeButton
@@ -85,7 +93,7 @@
          this.minimizeButton.Image = ((System.Drawing.Image)(resources.GetObject("minimizeButton.Image")));
          this.minimizeButton.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center;
          this.minimizeButton.ImageSize = new System.Drawing.Size(15, 15);
-         this.minimizeButton.Location = new System.Drawing.Point(977, -1);
+         this.minimizeButton.Location = new System.Drawing.Point(975, -1);
          this.minimizeButton.Name = "minimizeButton";
          this.minimizeButton.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
          this.minimizeButton.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -110,7 +118,7 @@
          this.closeButton.Image = ((System.Drawing.Image)(resources.GetObject("closeButton.Image")));
          this.closeButton.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center;
          this.closeButton.ImageSize = new System.Drawing.Size(15, 15);
-         this.closeButton.Location = new System.Drawing.Point(1013, -1);
+         this.closeButton.Location = new System.Drawing.Point(1011, -1);
          this.closeButton.Name = "closeButton";
          this.closeButton.OnHoverBaseColor = System.Drawing.Color.Red;
          this.closeButton.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -132,14 +140,13 @@
          this.task.Font = new System.Drawing.Font("Segoe UI", 10F);
          this.task.ForeColor = System.Drawing.Color.Black;
          this.task.FormattingEnabled = true;
-         this.task.Items.AddRange(new object[] {
-            "Вариант 9"});
          this.task.Location = new System.Drawing.Point(12, 57);
          this.task.Name = "task";
          this.task.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
          this.task.OnHoverItemForeColor = System.Drawing.Color.White;
          this.task.Size = new System.Drawing.Size(193, 26);
          this.task.TabIndex = 4;
+         this.task.SelectedIndexChanged += new System.EventHandler(this.task_SelectedIndexChanged);
          // 
          // label1
          // 
@@ -156,57 +163,6 @@
          // 
          this.gunaDragControl1.TargetControl = this;
          // 
-         // groupBox1
-         // 
-         this.groupBox1.BackColor = System.Drawing.Color.Transparent;
-         this.groupBox1.Controls.Add(this.temperature2);
-         this.groupBox1.Controls.Add(this.temperature1);
-         this.groupBox1.Controls.Add(this.label3);
-         this.groupBox1.Controls.Add(this.label2);
-         this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-         this.groupBox1.Location = new System.Drawing.Point(612, 34);
-         this.groupBox1.Name = "groupBox1";
-         this.groupBox1.Size = new System.Drawing.Size(302, 98);
-         this.groupBox1.TabIndex = 6;
-         this.groupBox1.TabStop = false;
-         this.groupBox1.Text = "Управляющие воздействия";
-         // 
-         // label2
-         // 
-         this.label2.AutoSize = true;
-         this.label2.BackColor = System.Drawing.Color.Transparent;
-         this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-         this.label2.Location = new System.Drawing.Point(6, 33);
-         this.label2.Name = "label2";
-         this.label2.Size = new System.Drawing.Size(226, 16);
-         this.label2.TabIndex = 6;
-         this.label2.Text = "Температура в змеевике (°C) (T1)";
-         // 
-         // label3
-         // 
-         this.label3.AutoSize = true;
-         this.label3.BackColor = System.Drawing.Color.Transparent;
-         this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-         this.label3.Location = new System.Drawing.Point(6, 67);
-         this.label3.Name = "label3";
-         this.label3.Size = new System.Drawing.Size(218, 16);
-         this.label3.TabIndex = 7;
-         this.label3.Text = "Температура в рубашке (°C) (T2)";
-         // 
-         // temperature1
-         // 
-         this.temperature1.Location = new System.Drawing.Point(231, 27);
-         this.temperature1.Name = "temperature1";
-         this.temperature1.Size = new System.Drawing.Size(58, 26);
-         this.temperature1.TabIndex = 8;
-         // 
-         // temperature2
-         // 
-         this.temperature2.Location = new System.Drawing.Point(231, 61);
-         this.temperature2.Name = "temperature2";
-         this.temperature2.Size = new System.Drawing.Size(58, 26);
-         this.temperature2.TabIndex = 9;
-         // 
          // groupBox2
          // 
          this.groupBox2.BackColor = System.Drawing.Color.Transparent;
@@ -217,52 +173,12 @@
          this.groupBox2.Controls.Add(this.alphaText);
          this.groupBox2.Controls.Add(this.label5);
          this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-         this.groupBox2.Location = new System.Drawing.Point(612, 138);
+         this.groupBox2.Location = new System.Drawing.Point(453, 139);
          this.groupBox2.Name = "groupBox2";
          this.groupBox2.Size = new System.Drawing.Size(232, 66);
          this.groupBox2.TabIndex = 7;
          this.groupBox2.TabStop = false;
          this.groupBox2.Text = "Нормирующие множители";
-         // 
-         // alphaText
-         // 
-         this.alphaText.Location = new System.Drawing.Point(27, 27);
-         this.alphaText.Name = "alphaText";
-         this.alphaText.ReadOnly = true;
-         this.alphaText.Size = new System.Drawing.Size(43, 26);
-         this.alphaText.TabIndex = 8;
-         this.alphaText.Text = "1";
-         // 
-         // label5
-         // 
-         this.label5.AutoSize = true;
-         this.label5.BackColor = System.Drawing.Color.Transparent;
-         this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-         this.label5.Location = new System.Drawing.Point(5, 30);
-         this.label5.Name = "label5";
-         this.label5.Size = new System.Drawing.Size(18, 20);
-         this.label5.TabIndex = 6;
-         this.label5.Text = "α";
-         // 
-         // betaText
-         // 
-         this.betaText.Location = new System.Drawing.Point(100, 27);
-         this.betaText.Name = "betaText";
-         this.betaText.ReadOnly = true;
-         this.betaText.Size = new System.Drawing.Size(43, 26);
-         this.betaText.TabIndex = 11;
-         this.betaText.Text = "1";
-         // 
-         // label6
-         // 
-         this.label6.AutoSize = true;
-         this.label6.BackColor = System.Drawing.Color.Transparent;
-         this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-         this.label6.Location = new System.Drawing.Point(78, 30);
-         this.label6.Name = "label6";
-         this.label6.Size = new System.Drawing.Size(18, 20);
-         this.label6.TabIndex = 10;
-         this.label6.Text = "β";
          // 
          // muText
          // 
@@ -284,6 +200,46 @@
          this.label7.TabIndex = 12;
          this.label7.Text = "µ";
          // 
+         // betaText
+         // 
+         this.betaText.Location = new System.Drawing.Point(100, 27);
+         this.betaText.Name = "betaText";
+         this.betaText.ReadOnly = true;
+         this.betaText.Size = new System.Drawing.Size(43, 26);
+         this.betaText.TabIndex = 11;
+         this.betaText.Text = "1";
+         // 
+         // label6
+         // 
+         this.label6.AutoSize = true;
+         this.label6.BackColor = System.Drawing.Color.Transparent;
+         this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+         this.label6.Location = new System.Drawing.Point(78, 30);
+         this.label6.Name = "label6";
+         this.label6.Size = new System.Drawing.Size(18, 20);
+         this.label6.TabIndex = 10;
+         this.label6.Text = "β";
+         // 
+         // alphaText
+         // 
+         this.alphaText.Location = new System.Drawing.Point(27, 27);
+         this.alphaText.Name = "alphaText";
+         this.alphaText.ReadOnly = true;
+         this.alphaText.Size = new System.Drawing.Size(43, 26);
+         this.alphaText.TabIndex = 8;
+         this.alphaText.Text = "1";
+         // 
+         // label5
+         // 
+         this.label5.AutoSize = true;
+         this.label5.BackColor = System.Drawing.Color.Transparent;
+         this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+         this.label5.Location = new System.Drawing.Point(5, 30);
+         this.label5.Name = "label5";
+         this.label5.Size = new System.Drawing.Size(18, 20);
+         this.label5.TabIndex = 6;
+         this.label5.Text = "α";
+         // 
          // groupBox3
          // 
          this.groupBox3.BackColor = System.Drawing.Color.Transparent;
@@ -294,28 +250,44 @@
          this.groupBox3.Controls.Add(this.label4);
          this.groupBox3.Controls.Add(this.label8);
          this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-         this.groupBox3.Location = new System.Drawing.Point(612, 210);
+         this.groupBox3.Location = new System.Drawing.Point(694, 112);
          this.groupBox3.Name = "groupBox3";
-         this.groupBox3.Size = new System.Drawing.Size(348, 135);
+         this.groupBox3.Size = new System.Drawing.Size(343, 135);
          this.groupBox3.TabIndex = 8;
          this.groupBox3.TabStop = false;
          this.groupBox3.Text = "Условия процесса";
          // 
+         // rotationalSpeed
+         // 
+         this.rotationalSpeed.Location = new System.Drawing.Point(262, 93);
+         this.rotationalSpeed.Name = "rotationalSpeed";
+         this.rotationalSpeed.Size = new System.Drawing.Size(75, 26);
+         this.rotationalSpeed.TabIndex = 11;
+         // 
+         // label9
+         // 
+         this.label9.AutoSize = true;
+         this.label9.BackColor = System.Drawing.Color.Transparent;
+         this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+         this.label9.Location = new System.Drawing.Point(6, 99);
+         this.label9.Name = "label9";
+         this.label9.Size = new System.Drawing.Size(255, 16);
+         this.label9.TabIndex = 10;
+         this.label9.Text = "Скорость вращения мешалки (об/с) (N)\r\n";
+         // 
          // reactorPressure
          // 
-         this.reactorPressure.Location = new System.Drawing.Point(267, 61);
+         this.reactorPressure.Location = new System.Drawing.Point(262, 61);
          this.reactorPressure.Name = "reactorPressure";
          this.reactorPressure.Size = new System.Drawing.Size(75, 26);
          this.reactorPressure.TabIndex = 9;
-         this.reactorPressure.Text = "1";
          // 
          // mixtureCons
          // 
-         this.mixtureCons.Location = new System.Drawing.Point(267, 27);
+         this.mixtureCons.Location = new System.Drawing.Point(262, 27);
          this.mixtureCons.Name = "mixtureCons";
          this.mixtureCons.Size = new System.Drawing.Size(75, 26);
          this.mixtureCons.TabIndex = 8;
-         this.mixtureCons.Text = "2";
          // 
          // label4
          // 
@@ -339,38 +311,6 @@
          this.label8.TabIndex = 6;
          this.label8.Text = "Расход реакционной смеси (кг/ч) (G)";
          // 
-         // rotationalSpeed
-         // 
-         this.rotationalSpeed.Location = new System.Drawing.Point(267, 93);
-         this.rotationalSpeed.Name = "rotationalSpeed";
-         this.rotationalSpeed.Size = new System.Drawing.Size(75, 26);
-         this.rotationalSpeed.TabIndex = 11;
-         this.rotationalSpeed.Text = "2";
-         // 
-         // label9
-         // 
-         this.label9.AutoSize = true;
-         this.label9.BackColor = System.Drawing.Color.Transparent;
-         this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-         this.label9.Location = new System.Drawing.Point(6, 99);
-         this.label9.Name = "label9";
-         this.label9.Size = new System.Drawing.Size(255, 16);
-         this.label9.TabIndex = 10;
-         this.label9.Text = "Скорость вращения мешалки (об/с) (N)\r\n";
-         // 
-         // label10
-         // 
-         this.label10.AutoSize = true;
-         this.label10.BackColor = System.Drawing.Color.Transparent;
-         this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.75F);
-         this.label10.Location = new System.Drawing.Point(307, 34);
-         this.label10.Name = "label10";
-         this.label10.Size = new System.Drawing.Size(299, 160);
-         this.label10.TabIndex = 9;
-         this.label10.Text = "Математическая модель количества \r\nпродукта получаемого в кг\r\nS = α*(G*µ*( (T2- T" +
-    "1)^N +(β *A-T1) ^N ))\r\nОграничения накладываемые на \r\nтемпературу\r\n-3<=T1<=3\r\n-2" +
-    "<=T2<=6\r\nT1-T2 <=-3";
-         // 
          // amountOfProductButton
          // 
          this.amountOfProductButton.AnimationHoverSpeed = 0.07F;
@@ -378,12 +318,13 @@
          this.amountOfProductButton.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
          this.amountOfProductButton.BorderColor = System.Drawing.Color.Black;
          this.amountOfProductButton.DialogResult = System.Windows.Forms.DialogResult.None;
+         this.amountOfProductButton.Enabled = false;
          this.amountOfProductButton.FocusedColor = System.Drawing.Color.Empty;
          this.amountOfProductButton.Font = new System.Drawing.Font("Segoe UI", 9F);
          this.amountOfProductButton.ForeColor = System.Drawing.Color.White;
          this.amountOfProductButton.Image = null;
          this.amountOfProductButton.ImageSize = new System.Drawing.Size(20, 20);
-         this.amountOfProductButton.Location = new System.Drawing.Point(446, 309);
+         this.amountOfProductButton.Location = new System.Drawing.Point(870, 505);
          this.amountOfProductButton.Name = "amountOfProductButton";
          this.amountOfProductButton.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
          this.amountOfProductButton.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -401,7 +342,7 @@
          this.label11.AutoSize = true;
          this.label11.BackColor = System.Drawing.Color.Transparent;
          this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.75F);
-         this.label11.Location = new System.Drawing.Point(608, 348);
+         this.label11.Location = new System.Drawing.Point(634, 445);
          this.label11.Name = "label11";
          this.label11.Size = new System.Drawing.Size(306, 20);
          this.label11.TabIndex = 11;
@@ -409,14 +350,14 @@
          // 
          // calculatedAmount
          // 
-         this.calculatedAmount.Location = new System.Drawing.Point(920, 349);
+         this.calculatedAmount.Location = new System.Drawing.Point(946, 446);
          this.calculatedAmount.Name = "calculatedAmount";
          this.calculatedAmount.Size = new System.Drawing.Size(85, 20);
          this.calculatedAmount.TabIndex = 12;
          // 
          // totalCost
          // 
-         this.totalCost.Location = new System.Drawing.Point(920, 381);
+         this.totalCost.Location = new System.Drawing.Point(946, 478);
          this.totalCost.Name = "totalCost";
          this.totalCost.Size = new System.Drawing.Size(85, 20);
          this.totalCost.TabIndex = 14;
@@ -426,7 +367,7 @@
          this.label12.AutoSize = true;
          this.label12.BackColor = System.Drawing.Color.Transparent;
          this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.75F);
-         this.label12.Location = new System.Drawing.Point(608, 380);
+         this.label12.Location = new System.Drawing.Point(634, 477);
          this.label12.Name = "label12";
          this.label12.Size = new System.Drawing.Size(308, 20);
          this.label12.TabIndex = 13;
@@ -434,55 +375,190 @@
          // 
          // costOnePiece
          // 
-         this.costOnePiece.Location = new System.Drawing.Point(563, 283);
+         this.costOnePiece.Location = new System.Drawing.Point(946, 416);
          this.costOnePiece.Name = "costOnePiece";
          this.costOnePiece.ReadOnly = true;
-         this.costOnePiece.Size = new System.Drawing.Size(43, 20);
+         this.costOnePiece.Size = new System.Drawing.Size(85, 20);
          this.costOnePiece.TabIndex = 15;
-         this.costOnePiece.Text = "100";
          // 
          // label13
          // 
          this.label13.AutoSize = true;
          this.label13.BackColor = System.Drawing.Color.Transparent;
          this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-         this.label13.Location = new System.Drawing.Point(406, 260);
+         this.label13.Location = new System.Drawing.Point(634, 417);
          this.label13.Name = "label13";
          this.label13.Size = new System.Drawing.Size(200, 20);
          this.label13.TabIndex = 14;
          this.label13.Text = "Стоимость 1 кг продукта";
          // 
-         // lowerT1
+         // choosenTask
          // 
-         this.lowerT1.Location = new System.Drawing.Point(267, 135);
-         this.lowerT1.Name = "lowerT1";
-         this.lowerT1.Size = new System.Drawing.Size(58, 20);
-         this.lowerT1.TabIndex = 16;
-         this.lowerT1.Text = "-3";
+         this.choosenTask.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+         this.choosenTask.Location = new System.Drawing.Point(12, 96);
+         this.choosenTask.Name = "choosenTask";
+         this.choosenTask.Size = new System.Drawing.Size(435, 416);
+         this.choosenTask.TabIndex = 25;
+         this.choosenTask.Text = "";
+         // 
+         // label18
+         // 
+         this.label18.AutoSize = true;
+         this.label18.BackColor = System.Drawing.Color.Transparent;
+         this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+         this.label18.Location = new System.Drawing.Point(284, 34);
+         this.label18.Name = "label18";
+         this.label18.Size = new System.Drawing.Size(131, 20);
+         this.label18.TabIndex = 27;
+         this.label18.Text = "Метод решения";
+         // 
+         // gunaComboBox1
+         // 
+         this.gunaComboBox1.BackColor = System.Drawing.Color.Transparent;
+         this.gunaComboBox1.BaseColor = System.Drawing.Color.White;
+         this.gunaComboBox1.BorderColor = System.Drawing.Color.Silver;
+         this.gunaComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+         this.gunaComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+         this.gunaComboBox1.FocusedColor = System.Drawing.Color.Empty;
+         this.gunaComboBox1.Font = new System.Drawing.Font("Segoe UI", 10F);
+         this.gunaComboBox1.ForeColor = System.Drawing.Color.Black;
+         this.gunaComboBox1.FormattingEnabled = true;
+         this.gunaComboBox1.Items.AddRange(new object[] {
+            "Метод сканирования",
+            "Метод Бокса"});
+         this.gunaComboBox1.Location = new System.Drawing.Point(288, 57);
+         this.gunaComboBox1.Name = "gunaComboBox1";
+         this.gunaComboBox1.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+         this.gunaComboBox1.OnHoverItemForeColor = System.Drawing.Color.White;
+         this.gunaComboBox1.Size = new System.Drawing.Size(157, 26);
+         this.gunaComboBox1.TabIndex = 26;
+         // 
+         // groupBox4
+         // 
+         this.groupBox4.BackColor = System.Drawing.Color.Transparent;
+         this.groupBox4.Controls.Add(this.label19);
+         this.groupBox4.Controls.Add(this.highestT2);
+         this.groupBox4.Controls.Add(this.lowerT2);
+         this.groupBox4.Controls.Add(this.label21);
+         this.groupBox4.Controls.Add(this.highestT1);
+         this.groupBox4.Controls.Add(this.lowerT1);
+         this.groupBox4.Controls.Add(this.label20);
+         this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+         this.groupBox4.Location = new System.Drawing.Point(453, 35);
+         this.groupBox4.Name = "groupBox4";
+         this.groupBox4.Size = new System.Drawing.Size(235, 98);
+         this.groupBox4.TabIndex = 28;
+         this.groupBox4.TabStop = false;
+         this.groupBox4.Text = "Ограничения первого рода";
+         // 
+         // label20
+         // 
+         this.label20.AutoSize = true;
+         this.label20.BackColor = System.Drawing.Color.Transparent;
+         this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+         this.label20.Location = new System.Drawing.Point(6, 33);
+         this.label20.Name = "label20";
+         this.label20.Size = new System.Drawing.Size(0, 16);
+         this.label20.TabIndex = 6;
+         // 
+         // label21
+         // 
+         this.label21.AutoSize = true;
+         this.label21.BackColor = System.Drawing.Color.Transparent;
+         this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+         this.label21.Location = new System.Drawing.Point(85, 29);
+         this.label21.Name = "label21";
+         this.label21.Size = new System.Drawing.Size(68, 20);
+         this.label21.TabIndex = 25;
+         this.label21.Text = "<=T1<=\r\n";
          // 
          // highestT1
          // 
-         this.highestT1.Location = new System.Drawing.Point(380, 134);
+         this.highestT1.Location = new System.Drawing.Point(159, 28);
          this.highestT1.Name = "highestT1";
-         this.highestT1.Size = new System.Drawing.Size(58, 20);
-         this.highestT1.TabIndex = 17;
-         this.highestT1.Text = "3";
+         this.highestT1.Size = new System.Drawing.Size(44, 26);
+         this.highestT1.TabIndex = 24;
+         // 
+         // lowerT1
+         // 
+         this.lowerT1.Location = new System.Drawing.Point(35, 29);
+         this.lowerT1.Name = "lowerT1";
+         this.lowerT1.Size = new System.Drawing.Size(44, 26);
+         this.lowerT1.TabIndex = 23;
+         // 
+         // label19
+         // 
+         this.label19.AutoSize = true;
+         this.label19.BackColor = System.Drawing.Color.Transparent;
+         this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+         this.label19.Location = new System.Drawing.Point(85, 62);
+         this.label19.Name = "label19";
+         this.label19.Size = new System.Drawing.Size(68, 20);
+         this.label19.TabIndex = 28;
+         this.label19.Text = "<=T2<=\r\n";
          // 
          // highestT2
          // 
-         this.highestT2.Location = new System.Drawing.Point(380, 156);
+         this.highestT2.Location = new System.Drawing.Point(159, 61);
          this.highestT2.Name = "highestT2";
-         this.highestT2.Size = new System.Drawing.Size(58, 20);
-         this.highestT2.TabIndex = 18;
-         this.highestT2.Text = "6";
+         this.highestT2.Size = new System.Drawing.Size(44, 26);
+         this.highestT2.TabIndex = 27;
          // 
          // lowerT2
          // 
-         this.lowerT2.Location = new System.Drawing.Point(267, 156);
+         this.lowerT2.Location = new System.Drawing.Point(35, 62);
          this.lowerT2.Name = "lowerT2";
-         this.lowerT2.Size = new System.Drawing.Size(58, 20);
-         this.lowerT2.TabIndex = 19;
-         this.lowerT2.Text = "-2";
+         this.lowerT2.Size = new System.Drawing.Size(44, 26);
+         this.lowerT2.TabIndex = 26;
+         // 
+         // groupBox5
+         // 
+         this.groupBox5.BackColor = System.Drawing.Color.Transparent;
+         this.groupBox5.Controls.Add(this.secondLimitation);
+         this.groupBox5.Controls.Add(this.label16);
+         this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+         this.groupBox5.Location = new System.Drawing.Point(694, 35);
+         this.groupBox5.Name = "groupBox5";
+         this.groupBox5.Size = new System.Drawing.Size(235, 69);
+         this.groupBox5.TabIndex = 29;
+         this.groupBox5.TabStop = false;
+         this.groupBox5.Text = "Ограничения второго рода";
+         // 
+         // secondLimitation
+         // 
+         this.secondLimitation.Location = new System.Drawing.Point(9, 27);
+         this.secondLimitation.Name = "secondLimitation";
+         this.secondLimitation.Size = new System.Drawing.Size(220, 26);
+         this.secondLimitation.TabIndex = 26;
+         // 
+         // label16
+         // 
+         this.label16.AutoSize = true;
+         this.label16.BackColor = System.Drawing.Color.Transparent;
+         this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+         this.label16.Location = new System.Drawing.Point(6, 33);
+         this.label16.Name = "label16";
+         this.label16.Size = new System.Drawing.Size(0, 16);
+         this.label16.TabIndex = 6;
+         // 
+         // accuracyValue
+         // 
+         this.accuracyValue.Location = new System.Drawing.Point(608, 211);
+         this.accuracyValue.Name = "accuracyValue";
+         this.accuracyValue.Size = new System.Drawing.Size(75, 20);
+         this.accuracyValue.TabIndex = 30;
+         this.accuracyValue.Text = "0,01";
+         // 
+         // label2
+         // 
+         this.label2.AutoSize = true;
+         this.label2.BackColor = System.Drawing.Color.Transparent;
+         this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+         this.label2.Location = new System.Drawing.Point(451, 211);
+         this.label2.Name = "label2";
+         this.label2.Size = new System.Drawing.Size(151, 20);
+         this.label2.TabIndex = 31;
+         this.label2.Text = "Точность решения";
          // 
          // Researcher
          // 
@@ -490,10 +566,13 @@
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
          this.BackgroundImage = global::WindowsFormsApp1.Properties.Resources.background;
          this.ClientSize = new System.Drawing.Size(1042, 548);
-         this.Controls.Add(this.lowerT2);
-         this.Controls.Add(this.highestT2);
-         this.Controls.Add(this.highestT1);
-         this.Controls.Add(this.lowerT1);
+         this.Controls.Add(this.label2);
+         this.Controls.Add(this.accuracyValue);
+         this.Controls.Add(this.groupBox5);
+         this.Controls.Add(this.groupBox4);
+         this.Controls.Add(this.label18);
+         this.Controls.Add(this.gunaComboBox1);
+         this.Controls.Add(this.choosenTask);
          this.Controls.Add(this.costOnePiece);
          this.Controls.Add(this.label13);
          this.Controls.Add(this.totalCost);
@@ -501,10 +580,8 @@
          this.Controls.Add(this.calculatedAmount);
          this.Controls.Add(this.label11);
          this.Controls.Add(this.amountOfProductButton);
-         this.Controls.Add(this.label10);
          this.Controls.Add(this.groupBox3);
          this.Controls.Add(this.groupBox2);
-         this.Controls.Add(this.groupBox1);
          this.Controls.Add(this.label1);
          this.Controls.Add(this.task);
          this.Controls.Add(this.minimizeButton);
@@ -514,12 +591,15 @@
          this.Name = "Researcher";
          this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
          this.Text = "Researcher";
-         this.groupBox1.ResumeLayout(false);
-         this.groupBox1.PerformLayout();
+         this.Load += new System.EventHandler(this.Researcher_Load);
          this.groupBox2.ResumeLayout(false);
          this.groupBox2.PerformLayout();
          this.groupBox3.ResumeLayout(false);
          this.groupBox3.PerformLayout();
+         this.groupBox4.ResumeLayout(false);
+         this.groupBox4.PerformLayout();
+         this.groupBox5.ResumeLayout(false);
+         this.groupBox5.PerformLayout();
          this.ResumeLayout(false);
          this.PerformLayout();
 
@@ -539,13 +619,7 @@
       private System.Windows.Forms.Label label6;
       private System.Windows.Forms.TextBox alphaText;
       private System.Windows.Forms.Label label5;
-      private System.Windows.Forms.GroupBox groupBox1;
-      private System.Windows.Forms.TextBox temperature2;
-      private System.Windows.Forms.TextBox temperature1;
-      private System.Windows.Forms.Label label3;
-      private System.Windows.Forms.Label label2;
       private Guna.UI.WinForms.GunaButton amountOfProductButton;
-      private System.Windows.Forms.Label label10;
       private System.Windows.Forms.GroupBox groupBox3;
       private System.Windows.Forms.TextBox rotationalSpeed;
       private System.Windows.Forms.Label label9;
@@ -559,9 +633,22 @@
       private System.Windows.Forms.Label label13;
       private System.Windows.Forms.TextBox totalCost;
       private System.Windows.Forms.Label label12;
-      private System.Windows.Forms.TextBox lowerT2;
+      private System.ComponentModel.BackgroundWorker backgroundWorker1;
+      private System.Windows.Forms.Label label18;
+      private Guna.UI.WinForms.GunaComboBox gunaComboBox1;
+      private System.Windows.Forms.RichTextBox choosenTask;
+      private System.Windows.Forms.GroupBox groupBox5;
+      private System.Windows.Forms.TextBox secondLimitation;
+      private System.Windows.Forms.Label label16;
+      private System.Windows.Forms.GroupBox groupBox4;
+      private System.Windows.Forms.Label label19;
       private System.Windows.Forms.TextBox highestT2;
+      private System.Windows.Forms.TextBox lowerT2;
+      private System.Windows.Forms.Label label21;
       private System.Windows.Forms.TextBox highestT1;
       private System.Windows.Forms.TextBox lowerT1;
+      private System.Windows.Forms.Label label20;
+      private System.Windows.Forms.Label label2;
+      private System.Windows.Forms.TextBox accuracyValue;
    }
 }

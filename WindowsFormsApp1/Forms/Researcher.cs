@@ -1,10 +1,19 @@
 ﻿using System;
+using System.Data;
+using System.Data.SQLite;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
+using WindowsFormsApp1.Forms;
 
 namespace WindowsFormsApp1
 {
    public partial class Researcher : Form
    {
+      static DataSet ds = new DataSet();
+      static SQLiteDataAdapter adapter = new SQLiteDataAdapter();
+      static DataTable table = new DataTable();
+      static string choosenDB = "";
+      private bool isLoad = false;
       public Researcher()
       {
          InitializeComponent();
@@ -28,16 +37,67 @@ namespace WindowsFormsApp1
          double pressure = Convert.ToDouble(reactorPressure.Text); //A
          double speed = Convert.ToDouble(rotationalSpeed.Text);    //N
          double consumption = Convert.ToDouble(mixtureCons.Text);  //G
-         double temperature_1 = Convert.ToDouble(temperature1.Text); //T1
-         double temperature_2 = Convert.ToDouble(temperature2.Text); //T2
+         double[] tempT1 = new[] {Convert.ToDouble(lowerT1.Text), Convert.ToDouble(highestT1.Text)};
+         double[] tempT2 = new[] {Convert.ToDouble(lowerT2.Text), Convert.ToDouble(highestT2.Text)};
+         double accuracy = Convert.ToDouble(accuracyValue.Text);
+         Simulation.scanMethod(alpha,beta,mu,pressure,speed,consumption,tempT1,tempT2, accuracy);
+         //double temperature_1 = Convert.ToDouble(temperature1.Text); //T1
+         //double temperature_2 = Convert.ToDouble(temperature2.Text); //T2
 
-         double S = alpha * (consumption * mu * (Math.Pow((temperature_2 - temperature_1), speed) +
-                                                 Math.Pow((beta * pressure - temperature_1), speed)));
-         calculatedAmount.Text = S.ToString();
-         totalCost.Text = (S * Convert.ToDouble(costOnePiece.Text)).ToString();
+         //double S = alpha * (consumption * mu * (Math.Pow((temperature_2 - temperature_1), speed) + Math.Pow((beta * pressure - temperature_1), speed)));
+         //calculatedAmount.Text = S.ToString();
+         //totalCost.Text = (S * Convert.ToDouble(costOnePiece.Text)).ToString();
+
          double[,] borders = new double[2,2] {{Convert.ToDouble(lowerT1.Text), Convert.ToDouble(highestT1.Text)}, {Convert.ToDouble(lowerT2.Text), Convert.ToDouble(highestT2.Text)}};
          double[,] boxPoints = new double[2,4];
          //boxPoints = Box.startPoints(2,borders,1,-1,-3);
+      }
+
+      private void highestT1_TextChanged(object sender, EventArgs e)
+      {
+
+      }
+
+      private void Researcher_Load(object sender, EventArgs e)
+      {
+         string command = "SELECT (Name) FROM tasks";
+         choosenDB = "Tasks.db";
+         task.DataSource = requestAnswer(command, "1");
+         task.DisplayMember = "Name";
+         isLoad = true;
+      }
+
+      public static DataTable requestAnswer(string cmd, string tmp)
+      {
+         using (SQLiteConnection Connect = new SQLiteConnection("Data Source =" + choosenDB))
+         {
+            Connect.Open();
+            adapter = new SQLiteDataAdapter(cmd, Connect);
+            Connect.Close();
+            table = new DataTable();
+            adapter.Fill(table);
+            return table;
+         }
+      }
+
+      private void task_SelectedIndexChanged(object sender, EventArgs e)
+      {
+         if (isLoad)
+         {
+            amountOfProductButton.Enabled = true;
+            string command = $"SELECT Task, LowerT1, HigherT1, LowerT2, HigherT2, SecondLimit, Consumption, Pressure, Speed, Price FROM Tasks WHere name = '{task.Text}'";
+            DataTable table1 = requestAnswer(command, "1");
+            choosenTask.Text = table1.Rows[0].ItemArray[0].ToString();
+            lowerT1.Text = table1.Rows[0].ItemArray[1].ToString();
+            highestT1.Text = table1.Rows[0].ItemArray[2].ToString();
+            lowerT2.Text = table1.Rows[0].ItemArray[3].ToString();
+            highestT2.Text = table1.Rows[0].ItemArray[4].ToString();
+            secondLimitation.Text = table1.Rows[0].ItemArray[5].ToString();
+            mixtureCons.Text = table1.Rows[0].ItemArray[6].ToString();
+            reactorPressure.Text = table1.Rows[0].ItemArray[7].ToString();
+            rotationalSpeed.Text =  table1.Rows[0].ItemArray[8].ToString();
+            costOnePiece.Text = table1.Rows[0].ItemArray[9].ToString();
+         }
       }
    }
 }
