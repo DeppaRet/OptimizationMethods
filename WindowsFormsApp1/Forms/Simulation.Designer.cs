@@ -28,10 +28,11 @@
       /// </summary>
       private void InitializeComponent()
       {
+         this.components = new System.ComponentModel.Container();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Simulation));
-         System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-         System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-         System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+         System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+         System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+         System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
          this.minimizeButton = new Guna.UI.WinForms.GunaButton();
          this.closeButton = new Guna.UI.WinForms.GunaButton();
          this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -45,8 +46,11 @@
          this.calculatedAmount = new System.Windows.Forms.TextBox();
          this.label11 = new System.Windows.Forms.Label();
          this.resultText = new System.Windows.Forms.RichTextBox();
+         this.ResultTable = new System.Windows.Forms.DataGridView();
+         this.gunaDragControl1 = new Guna.UI.WinForms.GunaDragControl(this.components);
          ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
          this.groupBox1.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.ResultTable)).BeginInit();
          this.SuspendLayout();
          // 
          // minimizeButton
@@ -101,18 +105,18 @@
          // 
          // chart1
          // 
-         chartArea1.Name = "ChartArea1";
-         this.chart1.ChartAreas.Add(chartArea1);
-         legend1.Name = "Legend1";
-         this.chart1.Legends.Add(legend1);
+         chartArea5.Name = "ChartArea1";
+         this.chart1.ChartAreas.Add(chartArea5);
+         legend5.Name = "Legend1";
+         this.chart1.Legends.Add(legend5);
          this.chart1.Location = new System.Drawing.Point(12, 33);
          this.chart1.Name = "chart1";
-         series1.ChartArea = "ChartArea1";
-         series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.SplineRange;
-         series1.Legend = "Legend1";
-         series1.Name = "Series1";
-         series1.YValuesPerPoint = 2;
-         this.chart1.Series.Add(series1);
+         series5.ChartArea = "ChartArea1";
+         series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.SplineRange;
+         series5.Legend = "Legend1";
+         series5.Name = "Series1";
+         series5.YValuesPerPoint = 2;
+         this.chart1.Series.Add(series5);
          this.chart1.Size = new System.Drawing.Size(543, 405);
          this.chart1.TabIndex = 6;
          this.chart1.Text = "chart1";
@@ -125,12 +129,12 @@
          this.groupBox1.Controls.Add(this.label3);
          this.groupBox1.Controls.Add(this.label2);
          this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-         this.groupBox1.Location = new System.Drawing.Point(561, 35);
+         this.groupBox1.Location = new System.Drawing.Point(561, 405);
          this.groupBox1.Name = "groupBox1";
          this.groupBox1.Size = new System.Drawing.Size(302, 98);
          this.groupBox1.TabIndex = 7;
          this.groupBox1.TabStop = false;
-         this.groupBox1.Text = "Управляющие воздействия";
+         this.groupBox1.Text = "Оптимальные настройки";
          // 
          // temperature2
          // 
@@ -206,11 +210,25 @@
          // 
          // resultText
          // 
-         this.resultText.Location = new System.Drawing.Point(571, 270);
+         this.resultText.Location = new System.Drawing.Point(561, 232);
          this.resultText.Name = "resultText";
-         this.resultText.Size = new System.Drawing.Size(291, 167);
+         this.resultText.Size = new System.Drawing.Size(302, 167);
          this.resultText.TabIndex = 20;
          this.resultText.Text = "";
+         // 
+         // ResultTable
+         // 
+         this.ResultTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+         this.ResultTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+         this.ResultTable.Location = new System.Drawing.Point(561, 35);
+         this.ResultTable.Name = "ResultTable";
+         this.ResultTable.RowHeadersVisible = false;
+         this.ResultTable.Size = new System.Drawing.Size(302, 188);
+         this.ResultTable.TabIndex = 21;
+         // 
+         // gunaDragControl1
+         // 
+         this.gunaDragControl1.TargetControl = this;
          // 
          // Simulation
          // 
@@ -218,6 +236,7 @@
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
          this.BackgroundImage = global::WindowsFormsApp1.Properties.Resources.background;
          this.ClientSize = new System.Drawing.Size(875, 512);
+         this.Controls.Add(this.ResultTable);
          this.Controls.Add(this.resultText);
          this.Controls.Add(this.totalCost);
          this.Controls.Add(this.label12);
@@ -229,10 +248,13 @@
          this.Controls.Add(this.closeButton);
          this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
          this.Name = "Simulation";
+         this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
          this.Text = "Simulation";
+         this.Load += new System.EventHandler(this.Simulation_Load);
          ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
          this.groupBox1.ResumeLayout(false);
          this.groupBox1.PerformLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.ResultTable)).EndInit();
          this.ResumeLayout(false);
          this.PerformLayout();
 
@@ -253,5 +275,7 @@
       private System.Windows.Forms.TextBox calculatedAmount;
       private System.Windows.Forms.Label label11;
       private System.Windows.Forms.RichTextBox resultText;
+      private System.Windows.Forms.DataGridView ResultTable;
+      private Guna.UI.WinForms.GunaDragControl gunaDragControl1;
    }
 }

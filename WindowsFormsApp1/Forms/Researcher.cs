@@ -40,17 +40,12 @@ namespace WindowsFormsApp1
          double[] tempT1 = new[] {Convert.ToDouble(lowerT1.Text), Convert.ToDouble(highestT1.Text)};
          double[] tempT2 = new[] {Convert.ToDouble(lowerT2.Text), Convert.ToDouble(highestT2.Text)};
          double accuracy = Convert.ToDouble(accuracyValue.Text);
-         Simulation.scanMethod(alpha,beta,mu,pressure,speed,consumption,tempT1,tempT2, accuracy);
-         //double temperature_1 = Convert.ToDouble(temperature1.Text); //T1
-         //double temperature_2 = Convert.ToDouble(temperature2.Text); //T2
+         double step = Convert.ToDouble(this.step.Text);
+         DataTable table = Scan.calculate(alpha, beta, mu, pressure, speed, consumption, tempT1, tempT2, accuracy,step);
 
-         //double S = alpha * (consumption * mu * (Math.Pow((temperature_2 - temperature_1), speed) + Math.Pow((beta * pressure - temperature_1), speed)));
-         //calculatedAmount.Text = S.ToString();
-         //totalCost.Text = (S * Convert.ToDouble(costOnePiece.Text)).ToString();
+         Simulation simulation = new Simulation(table);
+         simulation.Show();
 
-         double[,] borders = new double[2,2] {{Convert.ToDouble(lowerT1.Text), Convert.ToDouble(highestT1.Text)}, {Convert.ToDouble(lowerT2.Text), Convert.ToDouble(highestT2.Text)}};
-         double[,] boxPoints = new double[2,4];
-         //boxPoints = Box.startPoints(2,borders,1,-1,-3);
       }
 
       private void highestT1_TextChanged(object sender, EventArgs e)

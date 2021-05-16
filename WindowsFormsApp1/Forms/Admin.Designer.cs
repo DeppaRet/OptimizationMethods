@@ -47,24 +47,24 @@
          this.addTask = new Guna.UI.WinForms.GunaButton();
          this.label3 = new System.Windows.Forms.Label();
          this.groupBox1 = new System.Windows.Forms.GroupBox();
-         this.label4 = new System.Windows.Forms.Label();
-         this.taskName = new System.Windows.Forms.TextBox();
-         this.label19 = new System.Windows.Forms.Label();
-         this.highestT2 = new System.Windows.Forms.TextBox();
-         this.lowerT2 = new System.Windows.Forms.TextBox();
-         this.label21 = new System.Windows.Forms.Label();
-         this.highestT1 = new System.Windows.Forms.TextBox();
-         this.lowerT1 = new System.Windows.Forms.TextBox();
-         this.secondLimitation = new System.Windows.Forms.TextBox();
-         this.label5 = new System.Windows.Forms.Label();
+         this.costOnePiece = new System.Windows.Forms.TextBox();
+         this.label7 = new System.Windows.Forms.Label();
          this.rotationalSpeed = new System.Windows.Forms.TextBox();
          this.label9 = new System.Windows.Forms.Label();
          this.reactorPressure = new System.Windows.Forms.TextBox();
          this.mixtureCons = new System.Windows.Forms.TextBox();
          this.label6 = new System.Windows.Forms.Label();
          this.label8 = new System.Windows.Forms.Label();
-         this.costOnePiece = new System.Windows.Forms.TextBox();
-         this.label7 = new System.Windows.Forms.Label();
+         this.label5 = new System.Windows.Forms.Label();
+         this.secondLimitation = new System.Windows.Forms.TextBox();
+         this.label19 = new System.Windows.Forms.Label();
+         this.highestT2 = new System.Windows.Forms.TextBox();
+         this.lowerT2 = new System.Windows.Forms.TextBox();
+         this.label21 = new System.Windows.Forms.Label();
+         this.highestT1 = new System.Windows.Forms.TextBox();
+         this.lowerT1 = new System.Windows.Forms.TextBox();
+         this.taskName = new System.Windows.Forms.TextBox();
+         this.label4 = new System.Windows.Forms.Label();
          ((System.ComponentModel.ISupportInitialize)(this.dataTable)).BeginInit();
          this.groupBox1.SuspendLayout();
          this.SuspendLayout();
@@ -189,9 +189,11 @@
          // 
          // dataTable
          // 
+         this.dataTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
          this.dataTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
          this.dataTable.Location = new System.Drawing.Point(9, 71);
          this.dataTable.Name = "dataTable";
+         this.dataTable.RowHeadersVisible = false;
          this.dataTable.Size = new System.Drawing.Size(392, 432);
          this.dataTable.TabIndex = 13;
          // 
@@ -386,96 +388,24 @@
          this.groupBox1.TabStop = false;
          this.groupBox1.Text = "Добавить новую задачу";
          // 
-         // label4
+         // costOnePiece
          // 
-         this.label4.AutoSize = true;
-         this.label4.BackColor = System.Drawing.Color.Transparent;
-         this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-         this.label4.Location = new System.Drawing.Point(3, 26);
-         this.label4.Name = "label4";
-         this.label4.Size = new System.Drawing.Size(83, 20);
-         this.label4.TabIndex = 22;
-         this.label4.Text = "Название";
+         this.costOnePiece.Location = new System.Drawing.Point(411, 83);
+         this.costOnePiece.Name = "costOnePiece";
+         this.costOnePiece.Size = new System.Drawing.Size(52, 26);
+         this.costOnePiece.TabIndex = 51;
+         this.costOnePiece.Text = "100";
          // 
-         // taskName
+         // label7
          // 
-         this.taskName.Location = new System.Drawing.Point(92, 23);
-         this.taskName.Name = "taskName";
-         this.taskName.Size = new System.Drawing.Size(122, 26);
-         this.taskName.TabIndex = 23;
-         // 
-         // label19
-         // 
-         this.label19.AutoSize = true;
-         this.label19.BackColor = System.Drawing.Color.Transparent;
-         this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-         this.label19.Location = new System.Drawing.Point(59, 89);
-         this.label19.Name = "label19";
-         this.label19.Size = new System.Drawing.Size(68, 20);
-         this.label19.TabIndex = 34;
-         this.label19.Text = "<=T2<=\r\n";
-         // 
-         // highestT2
-         // 
-         this.highestT2.Location = new System.Drawing.Point(133, 88);
-         this.highestT2.Name = "highestT2";
-         this.highestT2.Size = new System.Drawing.Size(44, 26);
-         this.highestT2.TabIndex = 33;
-         this.highestT2.Text = "6";
-         // 
-         // lowerT2
-         // 
-         this.lowerT2.Location = new System.Drawing.Point(9, 89);
-         this.lowerT2.Name = "lowerT2";
-         this.lowerT2.Size = new System.Drawing.Size(44, 26);
-         this.lowerT2.TabIndex = 32;
-         this.lowerT2.Text = "-2";
-         // 
-         // label21
-         // 
-         this.label21.AutoSize = true;
-         this.label21.BackColor = System.Drawing.Color.Transparent;
-         this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-         this.label21.Location = new System.Drawing.Point(59, 56);
-         this.label21.Name = "label21";
-         this.label21.Size = new System.Drawing.Size(68, 20);
-         this.label21.TabIndex = 31;
-         this.label21.Text = "<=T1<=\r\n";
-         // 
-         // highestT1
-         // 
-         this.highestT1.Location = new System.Drawing.Point(133, 55);
-         this.highestT1.Name = "highestT1";
-         this.highestT1.Size = new System.Drawing.Size(44, 26);
-         this.highestT1.TabIndex = 30;
-         this.highestT1.Text = "3";
-         // 
-         // lowerT1
-         // 
-         this.lowerT1.Location = new System.Drawing.Point(9, 56);
-         this.lowerT1.Name = "lowerT1";
-         this.lowerT1.Size = new System.Drawing.Size(44, 26);
-         this.lowerT1.TabIndex = 29;
-         this.lowerT1.Text = "-3";
-         // 
-         // secondLimitation
-         // 
-         this.secondLimitation.Location = new System.Drawing.Point(243, 50);
-         this.secondLimitation.Name = "secondLimitation";
-         this.secondLimitation.Size = new System.Drawing.Size(220, 26);
-         this.secondLimitation.TabIndex = 35;
-         this.secondLimitation.Text = "T1 - T2 >= -3";
-         // 
-         // label5
-         // 
-         this.label5.AutoSize = true;
-         this.label5.BackColor = System.Drawing.Color.Transparent;
-         this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-         this.label5.Location = new System.Drawing.Point(239, 27);
-         this.label5.Name = "label5";
-         this.label5.Size = new System.Drawing.Size(216, 20);
-         this.label5.TabIndex = 36;
-         this.label5.Text = "Ограничения второго рода";
+         this.label7.AutoSize = true;
+         this.label7.BackColor = System.Drawing.Color.Transparent;
+         this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+         this.label7.Location = new System.Drawing.Point(240, 88);
+         this.label7.Name = "label7";
+         this.label7.Size = new System.Drawing.Size(171, 17);
+         this.label7.TabIndex = 50;
+         this.label7.Text = "Стоимость 1 кг продукта";
          // 
          // rotationalSpeed
          // 
@@ -534,24 +464,96 @@
          this.label8.TabIndex = 37;
          this.label8.Text = "Расход реакционной смеси (кг/ч) (G)";
          // 
-         // costOnePiece
+         // label5
          // 
-         this.costOnePiece.Location = new System.Drawing.Point(411, 83);
-         this.costOnePiece.Name = "costOnePiece";
-         this.costOnePiece.Size = new System.Drawing.Size(52, 26);
-         this.costOnePiece.TabIndex = 51;
-         this.costOnePiece.Text = "100";
+         this.label5.AutoSize = true;
+         this.label5.BackColor = System.Drawing.Color.Transparent;
+         this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+         this.label5.Location = new System.Drawing.Point(239, 27);
+         this.label5.Name = "label5";
+         this.label5.Size = new System.Drawing.Size(216, 20);
+         this.label5.TabIndex = 36;
+         this.label5.Text = "Ограничения второго рода";
          // 
-         // label7
+         // secondLimitation
          // 
-         this.label7.AutoSize = true;
-         this.label7.BackColor = System.Drawing.Color.Transparent;
-         this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-         this.label7.Location = new System.Drawing.Point(240, 88);
-         this.label7.Name = "label7";
-         this.label7.Size = new System.Drawing.Size(171, 17);
-         this.label7.TabIndex = 50;
-         this.label7.Text = "Стоимость 1 кг продукта";
+         this.secondLimitation.Location = new System.Drawing.Point(243, 50);
+         this.secondLimitation.Name = "secondLimitation";
+         this.secondLimitation.Size = new System.Drawing.Size(220, 26);
+         this.secondLimitation.TabIndex = 35;
+         this.secondLimitation.Text = "T1 - T2 >= -3";
+         // 
+         // label19
+         // 
+         this.label19.AutoSize = true;
+         this.label19.BackColor = System.Drawing.Color.Transparent;
+         this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+         this.label19.Location = new System.Drawing.Point(59, 89);
+         this.label19.Name = "label19";
+         this.label19.Size = new System.Drawing.Size(68, 20);
+         this.label19.TabIndex = 34;
+         this.label19.Text = "<=T2<=\r\n";
+         // 
+         // highestT2
+         // 
+         this.highestT2.Location = new System.Drawing.Point(133, 88);
+         this.highestT2.Name = "highestT2";
+         this.highestT2.Size = new System.Drawing.Size(44, 26);
+         this.highestT2.TabIndex = 33;
+         this.highestT2.Text = "6";
+         // 
+         // lowerT2
+         // 
+         this.lowerT2.Location = new System.Drawing.Point(9, 89);
+         this.lowerT2.Name = "lowerT2";
+         this.lowerT2.Size = new System.Drawing.Size(44, 26);
+         this.lowerT2.TabIndex = 32;
+         this.lowerT2.Text = "-2";
+         // 
+         // label21
+         // 
+         this.label21.AutoSize = true;
+         this.label21.BackColor = System.Drawing.Color.Transparent;
+         this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+         this.label21.Location = new System.Drawing.Point(59, 56);
+         this.label21.Name = "label21";
+         this.label21.Size = new System.Drawing.Size(68, 20);
+         this.label21.TabIndex = 31;
+         this.label21.Text = "<=T1<=\r\n";
+         // 
+         // highestT1
+         // 
+         this.highestT1.Location = new System.Drawing.Point(133, 55);
+         this.highestT1.Name = "highestT1";
+         this.highestT1.Size = new System.Drawing.Size(44, 26);
+         this.highestT1.TabIndex = 30;
+         this.highestT1.Text = "3";
+         // 
+         // lowerT1
+         // 
+         this.lowerT1.Location = new System.Drawing.Point(9, 56);
+         this.lowerT1.Name = "lowerT1";
+         this.lowerT1.Size = new System.Drawing.Size(44, 26);
+         this.lowerT1.TabIndex = 29;
+         this.lowerT1.Text = "-3";
+         // 
+         // taskName
+         // 
+         this.taskName.Location = new System.Drawing.Point(92, 23);
+         this.taskName.Name = "taskName";
+         this.taskName.Size = new System.Drawing.Size(122, 26);
+         this.taskName.TabIndex = 23;
+         // 
+         // label4
+         // 
+         this.label4.AutoSize = true;
+         this.label4.BackColor = System.Drawing.Color.Transparent;
+         this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+         this.label4.Location = new System.Drawing.Point(3, 26);
+         this.label4.Name = "label4";
+         this.label4.Size = new System.Drawing.Size(83, 20);
+         this.label4.TabIndex = 22;
+         this.label4.Text = "Название";
          // 
          // Admin
          // 

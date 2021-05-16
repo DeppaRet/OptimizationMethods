@@ -61,18 +61,20 @@
          this.label18 = new System.Windows.Forms.Label();
          this.gunaComboBox1 = new Guna.UI.WinForms.GunaComboBox();
          this.groupBox4 = new System.Windows.Forms.GroupBox();
-         this.label20 = new System.Windows.Forms.Label();
-         this.label21 = new System.Windows.Forms.Label();
-         this.highestT1 = new System.Windows.Forms.TextBox();
-         this.lowerT1 = new System.Windows.Forms.TextBox();
          this.label19 = new System.Windows.Forms.Label();
          this.highestT2 = new System.Windows.Forms.TextBox();
          this.lowerT2 = new System.Windows.Forms.TextBox();
+         this.label21 = new System.Windows.Forms.Label();
+         this.highestT1 = new System.Windows.Forms.TextBox();
+         this.lowerT1 = new System.Windows.Forms.TextBox();
+         this.label20 = new System.Windows.Forms.Label();
          this.groupBox5 = new System.Windows.Forms.GroupBox();
          this.secondLimitation = new System.Windows.Forms.TextBox();
          this.label16 = new System.Windows.Forms.Label();
          this.accuracyValue = new System.Windows.Forms.TextBox();
          this.label2 = new System.Windows.Forms.Label();
+         this.label3 = new System.Windows.Forms.Label();
+         this.step = new System.Windows.Forms.TextBox();
          this.groupBox2.SuspendLayout();
          this.groupBox3.SuspendLayout();
          this.groupBox4.SuspendLayout();
@@ -451,15 +453,30 @@
          this.groupBox4.TabStop = false;
          this.groupBox4.Text = "Ограничения первого рода";
          // 
-         // label20
+         // label19
          // 
-         this.label20.AutoSize = true;
-         this.label20.BackColor = System.Drawing.Color.Transparent;
-         this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-         this.label20.Location = new System.Drawing.Point(6, 33);
-         this.label20.Name = "label20";
-         this.label20.Size = new System.Drawing.Size(0, 16);
-         this.label20.TabIndex = 6;
+         this.label19.AutoSize = true;
+         this.label19.BackColor = System.Drawing.Color.Transparent;
+         this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+         this.label19.Location = new System.Drawing.Point(85, 62);
+         this.label19.Name = "label19";
+         this.label19.Size = new System.Drawing.Size(68, 20);
+         this.label19.TabIndex = 28;
+         this.label19.Text = "<=T2<=\r\n";
+         // 
+         // highestT2
+         // 
+         this.highestT2.Location = new System.Drawing.Point(159, 61);
+         this.highestT2.Name = "highestT2";
+         this.highestT2.Size = new System.Drawing.Size(44, 26);
+         this.highestT2.TabIndex = 27;
+         // 
+         // lowerT2
+         // 
+         this.lowerT2.Location = new System.Drawing.Point(35, 62);
+         this.lowerT2.Name = "lowerT2";
+         this.lowerT2.Size = new System.Drawing.Size(44, 26);
+         this.lowerT2.TabIndex = 26;
          // 
          // label21
          // 
@@ -486,30 +503,15 @@
          this.lowerT1.Size = new System.Drawing.Size(44, 26);
          this.lowerT1.TabIndex = 23;
          // 
-         // label19
+         // label20
          // 
-         this.label19.AutoSize = true;
-         this.label19.BackColor = System.Drawing.Color.Transparent;
-         this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-         this.label19.Location = new System.Drawing.Point(85, 62);
-         this.label19.Name = "label19";
-         this.label19.Size = new System.Drawing.Size(68, 20);
-         this.label19.TabIndex = 28;
-         this.label19.Text = "<=T2<=\r\n";
-         // 
-         // highestT2
-         // 
-         this.highestT2.Location = new System.Drawing.Point(159, 61);
-         this.highestT2.Name = "highestT2";
-         this.highestT2.Size = new System.Drawing.Size(44, 26);
-         this.highestT2.TabIndex = 27;
-         // 
-         // lowerT2
-         // 
-         this.lowerT2.Location = new System.Drawing.Point(35, 62);
-         this.lowerT2.Name = "lowerT2";
-         this.lowerT2.Size = new System.Drawing.Size(44, 26);
-         this.lowerT2.TabIndex = 26;
+         this.label20.AutoSize = true;
+         this.label20.BackColor = System.Drawing.Color.Transparent;
+         this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+         this.label20.Location = new System.Drawing.Point(6, 33);
+         this.label20.Name = "label20";
+         this.label20.Size = new System.Drawing.Size(0, 16);
+         this.label20.TabIndex = 6;
          // 
          // groupBox5
          // 
@@ -560,12 +562,33 @@
          this.label2.TabIndex = 31;
          this.label2.Text = "Точность решения";
          // 
+         // label3
+         // 
+         this.label3.AutoSize = true;
+         this.label3.BackColor = System.Drawing.Color.Transparent;
+         this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+         this.label3.Location = new System.Drawing.Point(453, 237);
+         this.label3.Name = "label3";
+         this.label3.Size = new System.Drawing.Size(41, 20);
+         this.label3.TabIndex = 33;
+         this.label3.Text = "Шаг";
+         // 
+         // step
+         // 
+         this.step.Location = new System.Drawing.Point(608, 237);
+         this.step.Name = "step";
+         this.step.Size = new System.Drawing.Size(75, 20);
+         this.step.TabIndex = 32;
+         this.step.Text = "0,1";
+         // 
          // Researcher
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
          this.BackgroundImage = global::WindowsFormsApp1.Properties.Resources.background;
          this.ClientSize = new System.Drawing.Size(1042, 548);
+         this.Controls.Add(this.label3);
+         this.Controls.Add(this.step);
          this.Controls.Add(this.label2);
          this.Controls.Add(this.accuracyValue);
          this.Controls.Add(this.groupBox5);
@@ -650,5 +673,7 @@
       private System.Windows.Forms.Label label20;
       private System.Windows.Forms.Label label2;
       private System.Windows.Forms.TextBox accuracyValue;
+      private System.Windows.Forms.Label label3;
+      private System.Windows.Forms.TextBox step;
    }
 }
