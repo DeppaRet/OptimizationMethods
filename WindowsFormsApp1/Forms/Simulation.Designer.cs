@@ -33,6 +33,8 @@
          System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
          System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
          System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+         System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+         System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
          this.minimizeButton = new Guna.UI.WinForms.GunaButton();
          this.closeButton = new Guna.UI.WinForms.GunaButton();
          this.equalLines = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -48,6 +50,7 @@
          this.resultText = new System.Windows.Forms.RichTextBox();
          this.ResultTable = new System.Windows.Forms.DataGridView();
          this.gunaDragControl1 = new Guna.UI.WinForms.GunaDragControl(this.components);
+         this.Build = new System.Windows.Forms.Button();
          ((System.ComponentModel.ISupportInitialize)(this.equalLines)).BeginInit();
          this.groupBox1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.ResultTable)).BeginInit();
@@ -105,18 +108,33 @@
          // 
          // equalLines
          // 
+         chartArea1.AxisX.Minimum = -3D;
+         chartArea1.AxisY.Minimum = -2D;
          chartArea1.Name = "ChartArea1";
          this.equalLines.ChartAreas.Add(chartArea1);
          legend1.Name = "Legend1";
          this.equalLines.Legends.Add(legend1);
          this.equalLines.Location = new System.Drawing.Point(12, 33);
          this.equalLines.Name = "equalLines";
+         series1.BorderWidth = 3;
          series1.ChartArea = "ChartArea1";
-         series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+         series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
          series1.Legend = "Legend1";
          series1.Name = "Series1";
          series1.YValuesPerPoint = 2;
+         series2.BorderWidth = 3;
+         series2.ChartArea = "ChartArea1";
+         series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+         series2.Legend = "Legend1";
+         series2.Name = "Series2";
+         series3.BorderWidth = 3;
+         series3.ChartArea = "ChartArea1";
+         series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+         series3.Legend = "Legend1";
+         series3.Name = "Series3";
          this.equalLines.Series.Add(series1);
+         this.equalLines.Series.Add(series2);
+         this.equalLines.Series.Add(series3);
          this.equalLines.Size = new System.Drawing.Size(543, 405);
          this.equalLines.TabIndex = 6;
          this.equalLines.Text = "equalLines";
@@ -230,12 +248,23 @@
          // 
          this.gunaDragControl1.TargetControl = this;
          // 
+         // Build
+         // 
+         this.Build.Location = new System.Drawing.Point(470, 464);
+         this.Build.Name = "Build";
+         this.Build.Size = new System.Drawing.Size(75, 23);
+         this.Build.TabIndex = 22;
+         this.Build.Text = "Построить";
+         this.Build.UseVisualStyleBackColor = true;
+         this.Build.Click += new System.EventHandler(this.Build_Click);
+         // 
          // Simulation
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
          this.BackgroundImage = global::WindowsFormsApp1.Properties.Resources.background;
          this.ClientSize = new System.Drawing.Size(875, 512);
+         this.Controls.Add(this.Build);
          this.Controls.Add(this.ResultTable);
          this.Controls.Add(this.resultText);
          this.Controls.Add(this.totalCost);
@@ -277,5 +306,6 @@
       private System.Windows.Forms.RichTextBox resultText;
       private System.Windows.Forms.DataGridView ResultTable;
       private Guna.UI.WinForms.GunaDragControl gunaDragControl1;
+      private System.Windows.Forms.Button Build;
    }
 }
