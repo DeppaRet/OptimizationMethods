@@ -7,13 +7,13 @@ using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
-using SharpGL;
-using SharpGL.Enumerations;
+
 
 namespace WindowsFormsApp1.Forms
 {
    public partial class Simulation : Form
    {
+      double[,] sdata = null;
       public DataTable table;
       public static Simulation Instance { get; private set; } // тут будет форма
       public Simulation(DataTable table2)
@@ -103,43 +103,35 @@ namespace WindowsFormsApp1.Forms
             }
          }
       }
-
+      C1.Win.C1Chart3D.Chart3DDataSetGrid sphere_set = null;
       private void build3D_Click(object sender, EventArgs e)
       {
-         OpenGL gl = openGLControl1.OpenGL;
+         
+         sdata = (double[,])Array.CreateInstance(typeof(double), 70, 90);
 
-         //  Очищает буфер кадра 
-         gl.Clear(OpenGL.GL_COLOR_BUFFER_BIT | OpenGL.GL_DEPTH_BUFFER_BIT);
-
-         //  загружает нулевую матрицу мировых координат
-         gl.LoadIdentity();
-         gl.LookAt(-10, 10, 10000, 0, 0, 0, 0, 1, 0);
-         gl.Begin(BeginMode.Points);
-         for (int i = 0; i < ResultTable.Rows.Count - 1; i++)
+         for (int i = 0; i < 70; i++)
          {
-            double x = Convert.ToDouble(ResultTable.Rows[i].Cells[0].Value);
-            double y = Convert.ToDouble(ResultTable.Rows[i].Cells[1].Value);
-            double z = Convert.ToDouble(ResultTable.Rows[i].Cells[2].Value);
-            gl.Vertex(x, y, z);
-            gl.Color(1.0f, 0.0f, 0.0f);
+            for (int j = 0; j < 90; j++)
+            {
+               if ((i/10.0 - 3) - (j/10.0 - 2) < -3)
+               {
+                  sdata[i, j] = 0;
+                  continue;
+               }
+               sdata[i, j] = 1 * (2 * 1 * (Math.Pow(((j/10.0-2) - (i/10.0-3)), 2) + Math.Pow((1 * 1 - (i/10.0-3)), 2))) * 100;
+            }
          }
-         gl.End();
-
-         //Point3D[] pt3d = new Point3D[ResultTable.RowCount];
-         //double x = -3;
-         //double y = 10;
-         //double z = 1;
-         //for (int i = 0; i < ResultTable.Rows.Count-1; i++)
-         //{
-         //   pt3d[i] =new Point3D();
-         //   pt3d[i].X = float.Parse(ResultTable.Rows[i].Cells[0].Value.ToString());
-         //   pt3d[i].Y = float.Parse(ResultTable.Rows[i].Cells[1].Value.ToString());
-         //   pt3d[i].Z = float.Parse(ResultTable.Rows[i].Cells[2].Value.ToString());
-         //}
-
+         sphere_set = new C1.Win.C1Chart3D.Chart3DDataSetGrid(-3, -2, 0.1, 0.1, sdata);
+         c1Chart3D1.ChartGroups[0].ChartData.SetGrid = sphere_set;
       }
    }
 }
+
+//Point3D[] pt3d = new Point3D[ResultTable.RowCount];
+//pt3d[i] = new Point3D();
+//pt3d[i].X = float.Parse(ResultTable.Rows[i].Cells[0].Value.ToString());
+//pt3d[i].Y = float.Parse(ResultTable.Rows[i].Cells[1].Value.ToString());
+//pt3d[i].Z = float.Parse(ResultTable.Rows[i].Cells[2].Value.ToString());
 
 
 
@@ -179,3 +171,22 @@ namespace WindowsFormsApp1.Forms
 //      break;
 //}
 //} while (stepT1 > accuracy || stepT2 > accuracy);
+
+//OpenGL gl = openGLControl1.OpenGL;
+
+////  Очищает буфер кадра 
+//gl.Clear(OpenGL.GL_COLOR_BUFFER_BIT | OpenGL.GL_DEPTH_BUFFER_BIT);
+
+////  загружает нулевую матрицу мировых координат
+//gl.LoadIdentity();
+//gl.LookAt(-10, 10, 10000, 0, 0, 0, 0, 1, 0);
+//gl.Begin(BeginMode.Points);
+//for (int i = 0; i < ResultTable.Rows.Count - 1; i++)
+//{
+//   double x = Convert.ToDouble(ResultTable.Rows[i].Cells[0].Value);
+//   double y = Convert.ToDouble(ResultTable.Rows[i].Cells[1].Value);
+//   double z = Convert.ToDouble(ResultTable.Rows[i].Cells[2].Value);
+//   gl.Vertex(x, y, z);
+//   gl.Color(1.0f, 0.0f, 0.0f);
+//}
+//gl.End();

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Data.SQLite;
+using System.Drawing;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using WindowsFormsApp1.Forms;
@@ -32,6 +33,8 @@ namespace WindowsFormsApp1
 
       private void amountOfProductButton_Click(object sender, EventArgs e)
       {
+         if(!check())
+            return;
          double alpha = Convert.ToDouble(alphaText.Text);
          double beta = Convert.ToDouble(betaText.Text);
          double mu = Convert.ToDouble(muText.Text);
@@ -109,6 +112,106 @@ namespace WindowsFormsApp1
       private void choosenMethod_SelectedIndexChanged(object sender, EventArgs e)
       {
          amountOfProductButton.Enabled = true;
+      }
+
+      public bool check()
+      {
+         accuracyValue.BackColor = Color.White;
+         lowerT1.BackColor = Color.White;
+         highestT1.BackColor = Color.White;
+         lowerT2.BackColor = Color.White;
+         highestT2.BackColor=Color.White;
+         mixtureCons.BackColor = Color.White;
+         reactorPressure.BackColor = Color.White;
+         rotationalSpeed.BackColor = Color.White;
+         try
+         {
+            double accuracy = Convert.ToDouble(accuracyValue.Text);
+            double val;
+            if (!Double.TryParse(accuracyValue.Text, out val))
+            {
+               accuracyValue.BackColor = Color.Red;
+               throw new Exception("Вы ввели текст!\nПрограмный комплекс принимает только числа!");
+            }
+            if (accuracy < 0.009)
+            {
+               accuracyValue.BackColor = Color.Red;
+               throw new Exception("Слишком маленький шаг!");
+            }
+            else if (accuracy > 1)
+            {
+               accuracyValue.BackColor = Color.Red;
+               throw new Exception("Слишком большой шаг!");
+            }
+            if (!Double.TryParse(lowerT1.Text, out val))
+            {
+               lowerT1.BackColor = Color.Red;
+               throw new Exception("Вы ввели текст!\nПрограмный комплекс принимает только числа!");
+            }
+            if (!Double.TryParse(lowerT2.Text, out val))
+            {
+               lowerT2.BackColor = Color.Red;
+               throw new Exception("Вы ввели текст!\nПрограмный комплекс принимает только числа!");
+            }
+            if (!Double.TryParse(highestT1.Text, out val))
+            {
+               highestT1.BackColor = Color.Red;
+               throw new Exception("Вы ввели текст!\nПрограмный комплекс принимает только числа!");
+            }
+            if (!Double.TryParse(highestT2.Text, out val))
+            {
+               highestT2.BackColor = Color.Red;
+               throw new Exception("Вы ввели текст!\nПрограмный комплекс принимает только числа!");
+            }
+            if (Convert.ToDouble(lowerT1.Text) > Convert.ToDouble(highestT1.Text))
+            {
+               lowerT1.BackColor = Color.Red;
+               highestT1.BackColor = Color.Red;
+               throw new Exception("Нижняя граница меньше верхней!");
+            }
+            if (Convert.ToDouble(lowerT2.Text) > Convert.ToDouble(highestT2.Text))
+            {
+               lowerT2.BackColor = Color.Red;
+               highestT2.BackColor = Color.Red;
+               throw new Exception("Нижняя граница меньше верхней!");
+            }
+            if (!Double.TryParse(mixtureCons.Text, out val))
+            {
+               mixtureCons.BackColor = Color.Red;
+               throw new Exception("Вы ввели текст!\nПрограмный комплекс принимает только числа!");
+            }
+            if (Convert.ToDouble(mixtureCons.Text) <= 0)
+            {
+               mixtureCons.BackColor = Color.Red;
+               throw new Exception("Значение должно быть больше 0!");
+            }
+            if (!Double.TryParse(reactorPressure.Text, out val))
+            {
+               reactorPressure.BackColor = Color.Red;
+               throw new Exception("Вы ввели текст!\nПрограмный комплекс принимает только числа!");
+            }
+            if (Convert.ToDouble(reactorPressure.Text) <= 0)
+            {
+               reactorPressure.BackColor = Color.Red;
+               throw new Exception("Значение должно быть больше 0!");
+            }
+            if (!Double.TryParse(rotationalSpeed.Text, out val))
+            {
+               rotationalSpeed.BackColor = Color.Red;
+               throw new Exception("Вы ввели текст!\nПрограмный комплекс принимает только числа!");
+            }
+            if (Convert.ToDouble(rotationalSpeed.Text) <= 0)
+            {
+               rotationalSpeed.BackColor = Color.Red;
+               throw new Exception("Значение должно быть больше 0!");
+            }
+            return true;
+         }
+         catch (Exception ex)
+         {
+            MessageBox.Show(ex.Message);
+            return false;
+         }
       }
    }
 }

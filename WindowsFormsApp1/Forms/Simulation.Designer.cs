@@ -30,14 +30,11 @@
       {
          this.components = new System.ComponentModel.Container();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Simulation));
-         System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-         System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-         System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
-         System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
-         System.Windows.Forms.DataVisualization.Charting.Series series11 = new System.Windows.Forms.DataVisualization.Charting.Series();
-         System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-         System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-         System.Windows.Forms.DataVisualization.Charting.Series series12 = new System.Windows.Forms.DataVisualization.Charting.Series();
+         System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+         System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+         System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+         System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+         System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
          this.minimizeButton = new Guna.UI.WinForms.GunaButton();
          this.closeButton = new Guna.UI.WinForms.GunaButton();
          this.equalLines = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -55,13 +52,11 @@
          this.gunaDragControl1 = new Guna.UI.WinForms.GunaDragControl(this.components);
          this.Build = new System.Windows.Forms.Button();
          this.build3D = new System.Windows.Forms.Button();
-         this.Visualise3D = new System.Windows.Forms.DataVisualization.Charting.Chart();
-         this.openGLControl1 = new SharpGL.OpenGLControl();
+         this.c1Chart3D1 = new C1.Win.C1Chart3D.C1Chart3D();
          ((System.ComponentModel.ISupportInitialize)(this.equalLines)).BeginInit();
          this.groupBox1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.ResultTable)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.Visualise3D)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.openGLControl1)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.c1Chart3D1)).BeginInit();
          this.SuspendLayout();
          // 
          // minimizeButton
@@ -78,7 +73,7 @@
          this.minimizeButton.Image = ((System.Drawing.Image)(resources.GetObject("minimizeButton.Image")));
          this.minimizeButton.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center;
          this.minimizeButton.ImageSize = new System.Drawing.Size(15, 15);
-         this.minimizeButton.Location = new System.Drawing.Point(807, -1);
+         this.minimizeButton.Location = new System.Drawing.Point(914, -3);
          this.minimizeButton.Name = "minimizeButton";
          this.minimizeButton.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
          this.minimizeButton.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -103,7 +98,7 @@
          this.closeButton.Image = ((System.Drawing.Image)(resources.GetObject("closeButton.Image")));
          this.closeButton.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center;
          this.closeButton.ImageSize = new System.Drawing.Size(15, 15);
-         this.closeButton.Location = new System.Drawing.Point(843, -1);
+         this.closeButton.Location = new System.Drawing.Point(950, -3);
          this.closeButton.Name = "closeButton";
          this.closeButton.OnHoverBaseColor = System.Drawing.Color.Red;
          this.closeButton.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -116,34 +111,34 @@
          // 
          // equalLines
          // 
-         chartArea5.AxisX.Minimum = -3D;
-         chartArea5.AxisY.Minimum = -2D;
-         chartArea5.Name = "ChartArea1";
-         this.equalLines.ChartAreas.Add(chartArea5);
-         legend5.Enabled = false;
-         legend5.Name = "Legend1";
-         this.equalLines.Legends.Add(legend5);
+         chartArea2.AxisX.Minimum = -3D;
+         chartArea2.AxisY.Minimum = -2D;
+         chartArea2.Name = "ChartArea1";
+         this.equalLines.ChartAreas.Add(chartArea2);
+         legend2.Enabled = false;
+         legend2.Name = "Legend1";
+         this.equalLines.Legends.Add(legend2);
          this.equalLines.Location = new System.Drawing.Point(12, 33);
          this.equalLines.Name = "equalLines";
-         series9.BorderWidth = 3;
-         series9.ChartArea = "ChartArea1";
-         series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
-         series9.Legend = "Legend1";
-         series9.Name = "Series1";
-         series9.YValuesPerPoint = 2;
-         series10.BorderWidth = 3;
-         series10.ChartArea = "ChartArea1";
-         series10.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
-         series10.Legend = "Legend1";
-         series10.Name = "Series2";
-         series11.BorderWidth = 3;
-         series11.ChartArea = "ChartArea1";
-         series11.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
-         series11.Legend = "Legend1";
-         series11.Name = "Series3";
-         this.equalLines.Series.Add(series9);
-         this.equalLines.Series.Add(series10);
-         this.equalLines.Series.Add(series11);
+         series4.BorderWidth = 3;
+         series4.ChartArea = "ChartArea1";
+         series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+         series4.Legend = "Legend1";
+         series4.Name = "Series1";
+         series4.YValuesPerPoint = 2;
+         series5.BorderWidth = 3;
+         series5.ChartArea = "ChartArea1";
+         series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+         series5.Legend = "Legend1";
+         series5.Name = "Series2";
+         series6.BorderWidth = 3;
+         series6.ChartArea = "ChartArea1";
+         series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+         series6.Legend = "Legend1";
+         series6.Name = "Series3";
+         this.equalLines.Series.Add(series4);
+         this.equalLines.Series.Add(series5);
+         this.equalLines.Series.Add(series6);
          this.equalLines.Size = new System.Drawing.Size(543, 214);
          this.equalLines.TabIndex = 6;
          this.equalLines.Text = "equalLines";
@@ -151,7 +146,6 @@
          // groupBox1
          // 
          this.groupBox1.BackColor = System.Drawing.Color.Transparent;
-         this.groupBox1.Controls.Add(this.Visualise3D);
          this.groupBox1.Controls.Add(this.temperature2);
          this.groupBox1.Controls.Add(this.temperature1);
          this.groupBox1.Controls.Add(this.label3);
@@ -238,9 +232,9 @@
          // 
          // resultText
          // 
-         this.resultText.Location = new System.Drawing.Point(561, 232);
+         this.resultText.Location = new System.Drawing.Point(320, 253);
          this.resultText.Name = "resultText";
-         this.resultText.Size = new System.Drawing.Size(302, 167);
+         this.resultText.Size = new System.Drawing.Size(235, 182);
          this.resultText.TabIndex = 20;
          this.resultText.Text = "";
          // 
@@ -248,7 +242,7 @@
          // 
          this.ResultTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
          this.ResultTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-         this.ResultTable.Location = new System.Drawing.Point(561, 35);
+         this.ResultTable.Location = new System.Drawing.Point(12, 253);
          this.ResultTable.Name = "ResultTable";
          this.ResultTable.RowHeadersVisible = false;
          this.ResultTable.Size = new System.Drawing.Size(302, 188);
@@ -278,50 +272,24 @@
          this.build3D.UseVisualStyleBackColor = true;
          this.build3D.Click += new System.EventHandler(this.build3D_Click);
          // 
-         // Visualise3D
+         // c1Chart3D1
          // 
-         chartArea6.Area3DStyle.Enable3D = true;
-         chartArea6.Area3DStyle.IsRightAngleAxes = false;
-         chartArea6.Area3DStyle.LightStyle = System.Windows.Forms.DataVisualization.Charting.LightStyle.None;
-         chartArea6.Area3DStyle.PointDepth = 1000;
-         chartArea6.AxisX.Minimum = -3D;
-         chartArea6.AxisY.Minimum = -2D;
-         chartArea6.Name = "ChartArea1";
-         this.Visualise3D.ChartAreas.Add(chartArea6);
-         legend6.Enabled = false;
-         legend6.Name = "Legend1";
-         this.Visualise3D.Legends.Add(legend6);
-         this.Visualise3D.Location = new System.Drawing.Point(48, 52);
-         this.Visualise3D.Name = "Visualise3D";
-         series12.BorderWidth = 3;
-         series12.ChartArea = "ChartArea1";
-         series12.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
-         series12.Legend = "Legend1";
-         series12.Name = "Series1";
-         series12.YValuesPerPoint = 2;
-         this.Visualise3D.Series.Add(series12);
-         this.Visualise3D.Size = new System.Drawing.Size(543, 190);
-         this.Visualise3D.TabIndex = 24;
-         this.Visualise3D.Text = "chart1";
-         // 
-         // openGLControl1
-         // 
-         this.openGLControl1.DrawFPS = false;
-         this.openGLControl1.Location = new System.Drawing.Point(12, 253);
-         this.openGLControl1.Name = "openGLControl1";
-         this.openGLControl1.OpenGLVersion = SharpGL.Version.OpenGLVersion.OpenGL2_1;
-         this.openGLControl1.RenderContextType = SharpGL.RenderContextType.DIBSection;
-         this.openGLControl1.RenderTrigger = SharpGL.RenderTrigger.TimerBased;
-         this.openGLControl1.Size = new System.Drawing.Size(543, 190);
-         this.openGLControl1.TabIndex = 24;
+         this.c1Chart3D1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+         this.c1Chart3D1.Location = new System.Drawing.Point(561, 33);
+         this.c1Chart3D1.Name = "c1Chart3D1";
+         this.c1Chart3D1.PropBag = resources.GetString("c1Chart3D1.PropBag");
+         this.c1Chart3D1.Size = new System.Drawing.Size(407, 366);
+         this.c1Chart3D1.TabIndex = 24;
          // 
          // Simulation
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
          this.BackgroundImage = global::WindowsFormsApp1.Properties.Resources.background;
-         this.ClientSize = new System.Drawing.Size(875, 512);
-         this.Controls.Add(this.openGLControl1);
+         this.ClientSize = new System.Drawing.Size(980, 512);
+         this.Controls.Add(this.c1Chart3D1);
          this.Controls.Add(this.build3D);
          this.Controls.Add(this.Build);
          this.Controls.Add(this.ResultTable);
@@ -343,8 +311,7 @@
          this.groupBox1.ResumeLayout(false);
          this.groupBox1.PerformLayout();
          ((System.ComponentModel.ISupportInitialize)(this.ResultTable)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.Visualise3D)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.openGLControl1)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.c1Chart3D1)).EndInit();
          this.ResumeLayout(false);
          this.PerformLayout();
 
@@ -369,7 +336,6 @@
       private Guna.UI.WinForms.GunaDragControl gunaDragControl1;
       private System.Windows.Forms.Button Build;
       private System.Windows.Forms.Button build3D;
-      private System.Windows.Forms.DataVisualization.Charting.Chart Visualise3D;
-      private SharpGL.OpenGLControl openGLControl1;
+      private C1.Win.C1Chart3D.C1Chart3D c1Chart3D1;
    }
 }
