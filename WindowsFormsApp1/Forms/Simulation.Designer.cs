@@ -35,6 +35,9 @@
          System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
          System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
          System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+         System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+         System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+         System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
          this.minimizeButton = new Guna.UI.WinForms.GunaButton();
          this.closeButton = new Guna.UI.WinForms.GunaButton();
          this.equalLines = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -51,9 +54,12 @@
          this.ResultTable = new System.Windows.Forms.DataGridView();
          this.gunaDragControl1 = new Guna.UI.WinForms.GunaDragControl(this.components);
          this.Build = new System.Windows.Forms.Button();
+         this.build3D = new System.Windows.Forms.Button();
+         this.Visualise3D = new System.Windows.Forms.DataVisualization.Charting.Chart();
          ((System.ComponentModel.ISupportInitialize)(this.equalLines)).BeginInit();
          this.groupBox1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.ResultTable)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.Visualise3D)).BeginInit();
          this.SuspendLayout();
          // 
          // minimizeButton
@@ -135,7 +141,7 @@
          this.equalLines.Series.Add(series1);
          this.equalLines.Series.Add(series2);
          this.equalLines.Series.Add(series3);
-         this.equalLines.Size = new System.Drawing.Size(543, 405);
+         this.equalLines.Size = new System.Drawing.Size(543, 190);
          this.equalLines.TabIndex = 6;
          this.equalLines.Text = "equalLines";
          // 
@@ -250,13 +256,47 @@
          // 
          // Build
          // 
-         this.Build.Location = new System.Drawing.Point(470, 464);
+         this.Build.Location = new System.Drawing.Point(451, 449);
          this.Build.Name = "Build";
-         this.Build.Size = new System.Drawing.Size(75, 23);
+         this.Build.Size = new System.Drawing.Size(104, 23);
          this.Build.TabIndex = 22;
-         this.Build.Text = "Построить";
+         this.Build.Text = "Построить ЛРЗ";
          this.Build.UseVisualStyleBackColor = true;
          this.Build.Click += new System.EventHandler(this.Build_Click);
+         // 
+         // build3D
+         // 
+         this.build3D.Location = new System.Drawing.Point(451, 477);
+         this.build3D.Name = "build3D";
+         this.build3D.Size = new System.Drawing.Size(104, 23);
+         this.build3D.TabIndex = 23;
+         this.build3D.Text = "Построить 3D";
+         this.build3D.UseVisualStyleBackColor = true;
+         this.build3D.Click += new System.EventHandler(this.build3D_Click);
+         // 
+         // Visualise3D
+         // 
+         chartArea2.Area3DStyle.Enable3D = true;
+         chartArea2.Area3DStyle.IsRightAngleAxes = false;
+         chartArea2.Area3DStyle.LightStyle = System.Windows.Forms.DataVisualization.Charting.LightStyle.None;
+         chartArea2.AxisX.Minimum = -3D;
+         chartArea2.AxisY.Minimum = -2D;
+         chartArea2.Name = "ChartArea1";
+         this.Visualise3D.ChartAreas.Add(chartArea2);
+         legend2.Name = "Legend1";
+         this.Visualise3D.Legends.Add(legend2);
+         this.Visualise3D.Location = new System.Drawing.Point(12, 232);
+         this.Visualise3D.Name = "Visualise3D";
+         series4.BorderWidth = 3;
+         series4.ChartArea = "ChartArea1";
+         series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+         series4.Legend = "Legend1";
+         series4.Name = "Series1";
+         series4.YValuesPerPoint = 2;
+         this.Visualise3D.Series.Add(series4);
+         this.Visualise3D.Size = new System.Drawing.Size(543, 190);
+         this.Visualise3D.TabIndex = 24;
+         this.Visualise3D.Text = "chart1";
          // 
          // Simulation
          // 
@@ -264,6 +304,8 @@
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
          this.BackgroundImage = global::WindowsFormsApp1.Properties.Resources.background;
          this.ClientSize = new System.Drawing.Size(875, 512);
+         this.Controls.Add(this.Visualise3D);
+         this.Controls.Add(this.build3D);
          this.Controls.Add(this.Build);
          this.Controls.Add(this.ResultTable);
          this.Controls.Add(this.resultText);
@@ -284,6 +326,7 @@
          this.groupBox1.ResumeLayout(false);
          this.groupBox1.PerformLayout();
          ((System.ComponentModel.ISupportInitialize)(this.ResultTable)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.Visualise3D)).EndInit();
          this.ResumeLayout(false);
          this.PerformLayout();
 
@@ -307,5 +350,7 @@
       private System.Windows.Forms.DataGridView ResultTable;
       private Guna.UI.WinForms.GunaDragControl gunaDragControl1;
       private System.Windows.Forms.Button Build;
+      private System.Windows.Forms.Button build3D;
+      private System.Windows.Forms.DataVisualization.Charting.Chart Visualise3D;
    }
 }

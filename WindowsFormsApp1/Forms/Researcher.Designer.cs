@@ -50,16 +50,12 @@
          this.label4 = new System.Windows.Forms.Label();
          this.label8 = new System.Windows.Forms.Label();
          this.amountOfProductButton = new Guna.UI.WinForms.GunaButton();
-         this.label11 = new System.Windows.Forms.Label();
-         this.calculatedAmount = new System.Windows.Forms.TextBox();
-         this.totalCost = new System.Windows.Forms.TextBox();
-         this.label12 = new System.Windows.Forms.Label();
          this.costOnePiece = new System.Windows.Forms.TextBox();
          this.label13 = new System.Windows.Forms.Label();
          this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
          this.choosenTask = new System.Windows.Forms.RichTextBox();
          this.label18 = new System.Windows.Forms.Label();
-         this.gunaComboBox1 = new Guna.UI.WinForms.GunaComboBox();
+         this.choosenMethod = new Guna.UI.WinForms.GunaComboBox();
          this.groupBox4 = new System.Windows.Forms.GroupBox();
          this.label19 = new System.Windows.Forms.Label();
          this.highestT2 = new System.Windows.Forms.TextBox();
@@ -337,48 +333,12 @@
          this.amountOfProductButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
          this.amountOfProductButton.Click += new System.EventHandler(this.amountOfProductButton_Click);
          // 
-         // label11
-         // 
-         this.label11.AutoSize = true;
-         this.label11.BackColor = System.Drawing.Color.Transparent;
-         this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.75F);
-         this.label11.Location = new System.Drawing.Point(634, 445);
-         this.label11.Name = "label11";
-         this.label11.Size = new System.Drawing.Size(306, 20);
-         this.label11.TabIndex = 11;
-         this.label11.Text = "Количество получаемого продукта (кг)\r\n";
-         // 
-         // calculatedAmount
-         // 
-         this.calculatedAmount.Location = new System.Drawing.Point(946, 446);
-         this.calculatedAmount.Name = "calculatedAmount";
-         this.calculatedAmount.Size = new System.Drawing.Size(85, 20);
-         this.calculatedAmount.TabIndex = 12;
-         // 
-         // totalCost
-         // 
-         this.totalCost.Location = new System.Drawing.Point(946, 478);
-         this.totalCost.Name = "totalCost";
-         this.totalCost.Size = new System.Drawing.Size(85, 20);
-         this.totalCost.TabIndex = 14;
-         // 
-         // label12
-         // 
-         this.label12.AutoSize = true;
-         this.label12.BackColor = System.Drawing.Color.Transparent;
-         this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.75F);
-         this.label12.Location = new System.Drawing.Point(634, 477);
-         this.label12.Name = "label12";
-         this.label12.Size = new System.Drawing.Size(308, 20);
-         this.label12.TabIndex = 13;
-         this.label12.Text = "Стоимость полученной продукции (у.е.)\r\n";
-         // 
          // costOnePiece
          // 
-         this.costOnePiece.Location = new System.Drawing.Point(946, 416);
+         this.costOnePiece.Location = new System.Drawing.Point(956, 253);
          this.costOnePiece.Name = "costOnePiece";
          this.costOnePiece.ReadOnly = true;
-         this.costOnePiece.Size = new System.Drawing.Size(85, 20);
+         this.costOnePiece.Size = new System.Drawing.Size(75, 20);
          this.costOnePiece.TabIndex = 15;
          // 
          // label13
@@ -386,7 +346,7 @@
          this.label13.AutoSize = true;
          this.label13.BackColor = System.Drawing.Color.Transparent;
          this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-         this.label13.Location = new System.Drawing.Point(634, 417);
+         this.label13.Location = new System.Drawing.Point(699, 253);
          this.label13.Name = "label13";
          this.label13.Size = new System.Drawing.Size(200, 20);
          this.label13.TabIndex = 14;
@@ -412,26 +372,27 @@
          this.label18.TabIndex = 27;
          this.label18.Text = "Метод решения";
          // 
-         // gunaComboBox1
+         // choosenMethod
          // 
-         this.gunaComboBox1.BackColor = System.Drawing.Color.Transparent;
-         this.gunaComboBox1.BaseColor = System.Drawing.Color.White;
-         this.gunaComboBox1.BorderColor = System.Drawing.Color.Silver;
-         this.gunaComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-         this.gunaComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-         this.gunaComboBox1.FocusedColor = System.Drawing.Color.Empty;
-         this.gunaComboBox1.Font = new System.Drawing.Font("Segoe UI", 10F);
-         this.gunaComboBox1.ForeColor = System.Drawing.Color.Black;
-         this.gunaComboBox1.FormattingEnabled = true;
-         this.gunaComboBox1.Items.AddRange(new object[] {
+         this.choosenMethod.BackColor = System.Drawing.Color.Transparent;
+         this.choosenMethod.BaseColor = System.Drawing.Color.White;
+         this.choosenMethod.BorderColor = System.Drawing.Color.Silver;
+         this.choosenMethod.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+         this.choosenMethod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+         this.choosenMethod.FocusedColor = System.Drawing.Color.Empty;
+         this.choosenMethod.Font = new System.Drawing.Font("Segoe UI", 10F);
+         this.choosenMethod.ForeColor = System.Drawing.Color.Black;
+         this.choosenMethod.FormattingEnabled = true;
+         this.choosenMethod.Items.AddRange(new object[] {
             "Метод сканирования",
             "Метод Бокса"});
-         this.gunaComboBox1.Location = new System.Drawing.Point(288, 57);
-         this.gunaComboBox1.Name = "gunaComboBox1";
-         this.gunaComboBox1.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-         this.gunaComboBox1.OnHoverItemForeColor = System.Drawing.Color.White;
-         this.gunaComboBox1.Size = new System.Drawing.Size(157, 26);
-         this.gunaComboBox1.TabIndex = 26;
+         this.choosenMethod.Location = new System.Drawing.Point(288, 57);
+         this.choosenMethod.Name = "choosenMethod";
+         this.choosenMethod.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+         this.choosenMethod.OnHoverItemForeColor = System.Drawing.Color.White;
+         this.choosenMethod.Size = new System.Drawing.Size(157, 26);
+         this.choosenMethod.TabIndex = 26;
+         this.choosenMethod.SelectedIndexChanged += new System.EventHandler(this.choosenMethod_SelectedIndexChanged);
          // 
          // groupBox4
          // 
@@ -571,14 +532,10 @@
          this.Controls.Add(this.groupBox5);
          this.Controls.Add(this.groupBox4);
          this.Controls.Add(this.label18);
-         this.Controls.Add(this.gunaComboBox1);
+         this.Controls.Add(this.choosenMethod);
          this.Controls.Add(this.choosenTask);
          this.Controls.Add(this.costOnePiece);
          this.Controls.Add(this.label13);
-         this.Controls.Add(this.totalCost);
-         this.Controls.Add(this.label12);
-         this.Controls.Add(this.calculatedAmount);
-         this.Controls.Add(this.label11);
          this.Controls.Add(this.amountOfProductButton);
          this.Controls.Add(this.groupBox3);
          this.Controls.Add(this.groupBox2);
@@ -627,15 +584,11 @@
       private System.Windows.Forms.TextBox mixtureCons;
       private System.Windows.Forms.Label label4;
       private System.Windows.Forms.Label label8;
-      private System.Windows.Forms.TextBox calculatedAmount;
-      private System.Windows.Forms.Label label11;
       private System.Windows.Forms.TextBox costOnePiece;
       private System.Windows.Forms.Label label13;
-      private System.Windows.Forms.TextBox totalCost;
-      private System.Windows.Forms.Label label12;
       private System.ComponentModel.BackgroundWorker backgroundWorker1;
       private System.Windows.Forms.Label label18;
-      private Guna.UI.WinForms.GunaComboBox gunaComboBox1;
+      private Guna.UI.WinForms.GunaComboBox choosenMethod;
       private System.Windows.Forms.RichTextBox choosenTask;
       private System.Windows.Forms.GroupBox groupBox5;
       private System.Windows.Forms.TextBox secondLimitation;

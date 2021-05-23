@@ -160,7 +160,7 @@ namespace WindowsFormsApp1.Forms
          calculatedAmount.Text = (maxValue / 100).ToString();
          temperature1.Text = T1.ToString();
          temperature2.Text = T2.ToString();
-         string result = "Максимальное значение функции составляет " + maxValue.ToString() +
+         string result = "Максимальное прибыль от реализации продукта составляет " + maxValue.ToString() +
          " у.е. и достигается при температурах T1=" + T1.ToString() + ", T2=" + T2.ToString();
          resultText.Text = result;
          //prepare3dChart(equalLines, equalLines.ChartAreas[0]);
@@ -217,6 +217,19 @@ namespace WindowsFormsApp1.Forms
                }
             }
          }
+      }
+
+      private void build3D_Click(object sender, EventArgs e)
+      {
+         Point3D[] pt3d = new Point3D[ResultTable.RowCount];
+         for (int i = 0; i < ResultTable.Rows.Count-1; i++)
+         {
+            pt3d[i] =new Point3D();
+            pt3d[i].X = float.Parse(ResultTable.Rows[i].Cells[0].Value.ToString());
+            pt3d[i].Y = float.Parse(ResultTable.Rows[i].Cells[1].Value.ToString());
+            pt3d[i].Z = float.Parse(ResultTable.Rows[i].Cells[2].Value.ToString());
+         }
+         
       }
    }
 }

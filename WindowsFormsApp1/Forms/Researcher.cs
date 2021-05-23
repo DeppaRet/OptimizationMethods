@@ -4,6 +4,7 @@ using System.Data.SQLite;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using WindowsFormsApp1.Forms;
+using BoxOptimiz;
 
 namespace WindowsFormsApp1
 {
@@ -40,8 +41,16 @@ namespace WindowsFormsApp1
          double[] tempT1 = new[] {Convert.ToDouble(lowerT1.Text), Convert.ToDouble(highestT1.Text)};
          double[] tempT2 = new[] {Convert.ToDouble(lowerT2.Text), Convert.ToDouble(highestT2.Text)};
          double accuracy = Convert.ToDouble(accuracyValue.Text);
-         DataTable table = Scan.calculate(alpha, beta, mu, pressure, speed, consumption, tempT1, tempT2, accuracy);
-
+         if(choosenMethod.Text == "Метод сканирования")
+         {
+            DataTable table;
+            table = Scan.calculate(alpha, beta, mu, pressure, speed, consumption, tempT1, tempT2, accuracy);
+         }
+         else
+         {
+            DataTable table;
+            table = Box.calculate(alpha, beta, mu, pressure, speed, consumption, tempT1, tempT2, accuracy);
+         }
          Simulation simulation = new Simulation(table);
          simulation.Show();
 
@@ -78,7 +87,7 @@ namespace WindowsFormsApp1
       {
          if (isLoad)
          {
-            amountOfProductButton.Enabled = true;
+            
             string command = $"SELECT Task, LowerT1, HigherT1, LowerT2, HigherT2, SecondLimit, Consumption, Pressure, Speed, Price FROM Tasks WHere name = '{task.Text}'";
             DataTable table1 = requestAnswer(command, "1");
             choosenTask.Text = table1.Rows[0].ItemArray[0].ToString();
@@ -92,6 +101,11 @@ namespace WindowsFormsApp1
             rotationalSpeed.Text =  table1.Rows[0].ItemArray[8].ToString();
             costOnePiece.Text = table1.Rows[0].ItemArray[9].ToString();
          }
+      }
+
+      private void choosenMethod_SelectedIndexChanged(object sender, EventArgs e)
+      {
+         amountOfProductButton.Enabled = true;
       }
    }
 }
