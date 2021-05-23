@@ -45,14 +45,17 @@ namespace WindowsFormsApp1
          {
             DataTable table;
             table = Scan.calculate(alpha, beta, mu, pressure, speed, consumption, tempT1, tempT2, accuracy);
+            Simulation simulation = new Simulation(table);
+            simulation.Show();
          }
          else
          {
             DataTable table;
             table = Box.calculate(alpha, beta, mu, pressure, speed, consumption, tempT1, tempT2, accuracy);
+            BoxSimulation boxSimulation = new BoxSimulation(table);
+            boxSimulation.Show();
          }
-         Simulation simulation = new Simulation(table);
-         simulation.Show();
+         
 
       }
 

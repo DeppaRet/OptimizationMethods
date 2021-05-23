@@ -118,6 +118,12 @@
       <DependentUpon>Authorization.cs</DependentUpon>
     </Compile>
     <Compile Include="Box.cs" />
+    <Compile Include="Forms\BoxSimulation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\BoxSimulation.Designer.cs">
+      <DependentUpon>BoxSimulation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\NewUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -144,6 +150,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Authorization.resx">
       <DependentUpon>Authorization.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BoxSimulation.resx">
+      <DependentUpon>BoxSimulation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\NewUser.resx">
       <DependentUpon>NewUser.cs</DependentUpon>

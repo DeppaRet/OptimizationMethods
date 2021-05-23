@@ -83,6 +83,7 @@ namespace BoxOptimiz
          hy = tempT2[1];
          table.Columns.Add("T1", typeof(double));
          table.Columns.Add("T2", typeof(double));
+         table.Columns.Add("Value", typeof(double));
          //table.Columns.Add("Value", typeof(double));
 
          ComplexGenerator();
@@ -96,7 +97,7 @@ namespace BoxOptimiz
          {
             counter++;
             for (int i = 0; i < 4; i++)
-               table.Rows.Add(Math.Round(complex[i].x, 2), Math.Round(complex[i].y, 2));
+               table.Rows.Add(Math.Round(complex[i].x, 2), Math.Round(complex[i].y, 2), Math.Round(f(complex[i], alpha, beta, mu, consumption, speed, pressure), 2));
                
 
             int bestIndex = 0;
