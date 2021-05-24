@@ -107,9 +107,9 @@ namespace WindowsFormsApp1.Forms
       private void build3D_Click(object sender, EventArgs e)
       {
          
-         sdata = (double[,])Array.CreateInstance(typeof(double), 70, 90);
+         sdata = (double[,])Array.CreateInstance(typeof(double), 60, 90);
 
-         for (int i = 0; i < 70; i++)
+         for (int i = 0; i < 60; i++)
          {
             for (int j = 0; j < 90; j++)
             {
